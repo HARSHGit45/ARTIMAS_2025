@@ -15,22 +15,22 @@ body {
 
 
 .hero2 {
-  background: linear-gradient(rgba(26, 25, 25, 0.5), rgba(22, 21, 21, 0.5)),url("./assets/projects-background.png");
+  background:linear-gradient(rgba(26, 25, 25, 0.5), rgba(22, 21, 21, 0.5)),  url("./assets/projects-background.png");
   background-size: cover;
   
 }
-
+/* linear-gradient(rgba(26, 25, 25, 0.5), rgba(22, 21, 21, 0.5)), */
 
 
 .hero3 {
-  background: linear-gradient(rgba(26, 25, 25, 0.5), rgba(22, 21, 21, 0.5)), url("./assets/about-background.png");
+  background: linear-gradient(rgba(25, 26, 25, 0.5), rgba(22, 21, 21, 0.5)), url("./assets/about-background.png");
   background-size: cover;
   
   
 }
 
 .hero4 {
-  background: linear-gradient(rgba(26, 25, 25, 0.5), rgba(22, 21, 21, 0.5)), url("./assets/contact-background.png");
+  background: linear-gradient(rgba(25, 26, 25, 0.5), rgba(22, 21, 21, 0.5)), url("./assets/contact-background.png");
   background-size: cover;
 
   

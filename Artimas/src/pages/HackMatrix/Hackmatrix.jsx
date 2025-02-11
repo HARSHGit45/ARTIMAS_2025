@@ -64,10 +64,10 @@ const  Hackmatrix = () => {
             className="mt-4 flex gap-4">
           <button 
           
-          className="px-6 py-3 bg-[#FFB900] border-2 border-[#60605C] text-[#000000] rounded-full shadow-lg">
+          className="px-6 py-3 bg-[#FFB900] border-2 border-[#60605C] text-[#000000] rounded-full shadow-lg font-bold">
             Register Now
           </button>
-          <button className="px-6 py-3 bg-[#0E1A40] border-2 border-[#946B2D] text-[#D4A017] rounded-full shadow-lg">
+          <button className="px-6 py-3 bg-[#0E1A40] border-2 border-[#946B2D] text-[#D4A017] rounded-full shadow-lg font-bold">
             Rulebook
           </button>
 
