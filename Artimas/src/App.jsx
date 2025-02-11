@@ -8,6 +8,7 @@ import Amngus from './pages/Among Us/Amngus.jsx';
 import Hackmatrix from './pages/HackMatrix/Hackmatrix.jsx';
 import Datathon from './pages/Datathon/Datathon.jsx';
 import FireFliesBackground from './components/fireflies/FireFliesBackground.jsx';
+import FoldableMap from './components/FoldableMap.jsx';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -53,6 +54,8 @@ function App() {
         <Route path="/datathon" element={<Datathon />} />
         <Route path="/pixel" element={<Home />} />
         <Route path="/hackmatrix" element={<Hackmatrix />} />
+
+        <Route path='/events' element={<FoldableMap/>} />
 
       </Routes>
     </Router>
