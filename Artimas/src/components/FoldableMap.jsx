@@ -23,7 +23,7 @@ const FoldableMap = () => {
   return (
     <div className="">
       <div
-        className="  overflow-x-clip mt-72 rotate-x-58 -rotate-y-4 rotate-z-5"
+        className="  overflow-x-clip mt-64 rotate-x-74 -rotate-y-4 rotate-z-5"
         style={{ perspective: "1000px" }}>
         <motion.div
           animate={isFolded ? "folded" : "open"}
@@ -38,7 +38,7 @@ const FoldableMap = () => {
             variants={{ open: { rotate: 0 }, hovering: { rotate: 0 } }}
             whileHover="hovering"
             initial={{ rotate: 3 }}
-            className="grid aspect-video h-[38vh] w-[50vh] md:w-[100vh] md:h-[60vh] p-8 relative"
+            className="grid aspect-video h-[38vh] w-[50vh] md:w-[150vh] md:h-[140vh] p-8 relative"
           >
             <div className="grid grid-cols-3 [grid-area:1/1]">
               <motion.div
@@ -89,7 +89,7 @@ const FoldableMap = () => {
             y: -10,
           },
         }}
-        className="mt-32 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 pointer-events-none flex items-center justify-center" >
+        className="mt-10 absolute top-0 left-1/2 transform -translate-x-1/2 z-20 pointer-events-none flex items-center justify-center" >
     
         <motion.div
           className=" w-52 h-52 bg-contain bg-center bg-no-repeat relative"
