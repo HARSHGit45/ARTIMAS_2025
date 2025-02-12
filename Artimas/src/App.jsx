@@ -7,11 +7,11 @@ import Pointer from './components/cursor/Pointer.jsx';
 import Amngus from './pages/Among Us/Amngus.jsx';
 import Hackmatrix from './pages/HackMatrix/Hackmatrix.jsx';
 import Datathon from './pages/Datathon/Datathon.jsx';
-import FireFliesBackground from './components/fireflies/FireFliesBackground.jsx';
-import FoldableMap from './components/FoldableMap.jsx';
+
 import Footer from './components/footer/Footer.jsx';
 
 import Pixel from './pages/pixel/Pixel.jsx'
+import FireFliesBackground from './components/fireflies/FireFliesBackground.jsx';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -50,7 +50,8 @@ function App() {
     
     <Router>
     <Header />
-      <FireFliesBackground/>
+    <FireFliesBackground />
+     
       <Pointer />
      
      

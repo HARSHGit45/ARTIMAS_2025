@@ -63,38 +63,19 @@ const FireFliesBackground = () => {
     const addFireflyPeriodically = () => {
       const newFirefly = createFirefly();
       setFireflies((currentFireflies) => [
-<<<<<<< HEAD
         ...currentFireflies.slice(-29), // Keep only last 29 fireflies (fewer particles)
-=======
-        ...currentFireflies.slice(-49), // Keep the last 49 fireflies
->>>>>>> 54582aabd652598b5f93b1dd0ba01643eecf2032
         newFirefly,
       ]);
     };
 
-<<<<<<< HEAD
     const interval = setInterval(addFireflyPeriodically, 1000); // Add a new firefly every 1000ms
-=======
-    const interval = setInterval(addFireflyPeriodically, 500); // Add a new firefly every 500ms
->>>>>>> 54582aabd652598b5f93b1dd0ba01643eecf2032
 
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-<<<<<<< HEAD
     const randomTranslate = (position, max) => {
       return Math.floor(Math.random() * max - position);
-=======
-    const checkCss = () => {
-      if (document.styleSheets.length === 0) {
-        document.head.innerHTML += "<style></style>";
-      }
-    };
-
-    const randomTranslate = (position, max) => {
-      return Math.floor((Math.random() * max) - position);
->>>>>>> 54582aabd652598b5f93b1dd0ba01643eecf2032
     };
 
     const keyframeFactory = (className, x, y, width, height) => {
@@ -106,46 +87,19 @@ const FireFliesBackground = () => {
           50% {
             transform: translate(${x > 0 ? -width : width}px, ${randomTranslate(y, height)}px);
           }
-<<<<<<< HEAD
           ${keyframePercent}% { opacity: 1; }
           ${keyframePercent - plusMinus}% { opacity: 0; }
           ${keyframePercent + plusMinus}% { opacity: 0; }
           ${keyframePercent2}% { opacity: 1; }
           ${keyframePercent2 - plusMinus}% { opacity: 0; }
           ${keyframePercent2 + plusMinus}% { opacity: 0; }
-=======
-          ${keyframePercent}% {
-            opacity: 1;
-          }
-          ${keyframePercent - plusMinus}% {
-            opacity: 0;
-          }
-          ${keyframePercent + plusMinus}% {
-            opacity: 0;
-          }
-          ${keyframePercent2}% {
-            opacity: 1;
-          }
-          ${keyframePercent2 - plusMinus}% {
-            opacity: 0;
-          }
-          ${keyframePercent2 + plusMinus}% {
-            opacity: 0;
-          }
->>>>>>> 54582aabd652598b5f93b1dd0ba01643eecf2032
         }
       `;
     };
 
-<<<<<<< HEAD
     const ruleFactory = (className, duration, size, color, animationName, x, y) => {
       return `
         .${className} {
-=======
-    const ruleFactory = (ruleName, duration, size, color, animationName, x, y) => {
-      return `
-        .${ruleName} {
->>>>>>> 54582aabd652598b5f93b1dd0ba01643eecf2032
           position: absolute;
           top: ${y}px;
           left: ${x}px;
@@ -160,7 +114,6 @@ const FireFliesBackground = () => {
 
     const hatchFlies = (config = {}) => {
       const flyNodes = [];
-<<<<<<< HEAD
       const flies = config.number_flies || 30; // Fewer particles
       const color = config.color || "#ffb149";
       const element = config.elem || ".fireflies-container";
@@ -196,37 +149,11 @@ const FireFliesBackground = () => {
         try {
           styleEl.sheet.insertRule(ruleFactory(className, duration, size, color, animationName, x, y), 0);
           styleEl.sheet.insertRule(keyframeFactory(animationName, x, y, width, height), 0);
-=======
-      const flies = config.number_flies || 100; // Increase the number of flies to 100
-      const color = config.color || '#ffb149';
-      const element = config.elem || 'body';
-      const elementDom = document.querySelector(element);
-      if (!elementDom) {
-        console.error(`No elements were found that match the selector: '${element}'. Please check it and try again.`);
-        return;
-      }
-      const clientRect = elementDom.getBoundingClientRect();
-      const height = clientRect.height;
-      const width = clientRect.width;
-      for (let fly = 0; fly < flies; fly++) {
-        const className = `a${fly}`;
-        const animationName = `k${fly}`;
-        flyNodes.push(`<div class=${className}>&bull;</div>`);
-        const size = 1 + Math.ceil(Math.random() * 15);
-        const duration = 5 + (Math.random() * 60) + "s";
-        const x = Math.random() < 0.5 ? 0 : width;
-        const y = Math.floor(Math.random() * height);
-        try {
-          document.styleSheets[0].insertRule(ruleFactory(className, duration, size, color, animationName, x, y), 0);
-          document.styleSheets[0].insertRule(keyframeFactory(animationName, x, y, width, height), 0);
-          console.log(`Inserted CSS rule for ${className} and ${animationName}`);
->>>>>>> 54582aabd652598b5f93b1dd0ba01643eecf2032
         } catch (e) {
           console.error("Failed to insert CSS rule:", e);
         }
       }
 
-<<<<<<< HEAD
       // Ensure no duplicated fireflies container
       let fliesContainer = document.getElementById("flies");
       if (!fliesContainer) {
@@ -255,19 +182,6 @@ const FireFliesBackground = () => {
       className="fixed top-0 left-0 w-full h-full z-50 overflow-hidden fireflies-container"
       style={{ pointerEvents: "none" }}
     >
-=======
-      const position = element === 'body' ? 'absolute' : 'relative';
-      elementDom.innerHTML += `<div id='flies' style='position: ${position}; top: 0; left:0; overflow:hidden; width:${width}px; height:${height}px; pointer-events: none;'>${flyNodes.join('')}</div>`;
-      console.log('Fireflies created:', flyNodes);
-    };
-
-    checkCss();
-    hatchFlies({ elem: '.fireflies-container' });
-  }, []);
-
-  return (
-    <div className="fixed top-0 left-0 w-full h-full z-50 overflow-hidden fireflies-container" style={{ pointerEvents: 'none' }}>
->>>>>>> 54582aabd652598b5f93b1dd0ba01643eecf2032
       <style>
         {`
           .bg-firefly-radial {
@@ -275,7 +189,6 @@ const FireFliesBackground = () => {
           }
           @keyframes move {
             0% { transform: translate(0, 0); }
-<<<<<<< HEAD
             100% { transform: translate(200px, 200px); } 
           }
           .fireflies-container * {
@@ -299,25 +212,6 @@ const FireFliesBackground = () => {
           }}
         ></div>
       ))}
-=======
-            100% { transform: translate(200px, 200px); } /* Increase the movement distance */
-          }
-        `}
-      </style>
-      {fireflies.map((firefly) => {
-        return (
-          <div
-            key={firefly.id}
-            className="absolute rounded-full w-[10px] h-[10px] bg-firefly-radial"
-            style={{
-              top: firefly.top,
-              left: firefly.left,
-              animation: `move ${firefly.animationDuration} infinite alternate`,
-            }}
-          ></div>
-        );
-      })}
->>>>>>> 54582aabd652598b5f93b1dd0ba01643eecf2032
     </div>
   );
 };
