@@ -30,7 +30,7 @@ const Header = () => {
           Houdini Heist
         </Link>
         <Link
-          to="/"
+          to="/events"
           className="event text-white text-sm sm:text-lg transition duration-300 hover:text-orange-500 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]"
         >
           Pixel Perfect
