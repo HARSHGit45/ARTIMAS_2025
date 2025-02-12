@@ -12,6 +12,7 @@ import Footer from './components/footer/Footer.jsx';
 
 import Pixel from './pages/pixel/Pixel.jsx'
 import FireFliesBackground from './components/fireflies/FireFliesBackground.jsx';
+import FoldableMap from './components/FoldableMap.jsx';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -36,6 +37,10 @@ const Home = () => {
 
         <button onClick={() => navigate('/hackmatrix')} className="px-6 py-3 bg-red-500 text-white rounded-lg shadow-lg hover:bg-red-600">
           Event 5
+        </button>
+
+        <button onClick={() => navigate('/foldable')} className="px-6 py-3 bg-red-500 text-white rounded-lg shadow-lg hover:bg-red-600">
+          Event 6
         </button>
 
       </div>
@@ -65,6 +70,7 @@ function App() {
         <Route path="/hackmatrix" element={<Hackmatrix />} />
 
         <Route path='/pixel' element={<Pixel />} />
+        <Route path='/foldable' element={<FoldableMap />} />
 
       </Routes>
 

@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/ARTIMAS.png'
+import Logo from '../Logo';
 
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full flex justify-between items-center p-3 sm:p-5 font-bold text-lg bg-black/50 backdrop-blur-md z-50">
       
-      <Link to="/">
-        <img src={logo} alt="Logo" className="h-8 w-40 sm:h-12 ml-4" />
-      </Link>
+      <Logo />
 
       {/* Navigation Menu */}
       <nav className="flex gap-4 sm:gap-10">
