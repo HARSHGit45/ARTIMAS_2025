@@ -2,7 +2,7 @@
 import back from "../../assets/back1.png";
 import huff from "../../assets/colin.png";
 import { motion } from "framer-motion";
-import HHRegister from "../Houdieni Heist/HHRegister";
+import PRegister from "../pixel/PRegister";
 import { useState } from "react";
 
 const textVariants = {
@@ -71,7 +71,7 @@ const  HH= () => {
             Rulebook
           </button>
 
-          <HHRegister  visible={showMyModal} onClose={() => setshowMyModal(false)} />
+          <PRegister  visible={showMyModal} onClose={() => setshowMyModal(false)} />
 
         </motion.div>
       </motion.div>
