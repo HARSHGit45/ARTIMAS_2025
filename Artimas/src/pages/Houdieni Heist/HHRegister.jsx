@@ -88,7 +88,7 @@ const HHRegister = ({ visible, onClose }) => {
               onChange={handleNumChange}
               className="mt-4 bg-transparent border border-black rounded w-38 md:w-48 py-1 px-2 text-gray-700 focus:outline-none"
             />
-            <button className="w-38 md:w-48 mt-3 px-4 py-2 bg-yellow-500 text-white rounded" onClick={() => setStep(2)}>
+            <button className="w-38 md:w-48 mt-3 px-4 py-2 bg-[#ac2424] text-white rounded" onClick={() => setStep(2)}>
               Next
             </button>
           </motion.div>
@@ -141,7 +141,7 @@ const HHRegister = ({ visible, onClose }) => {
 
             {error && <div className="text-red-500 text-md font-bold mt-1 md:mt-2">{error}</div>}
 
-            <button className="w-full mt-1 md:mt-3 px-3 py-2 bg-amber-400 text-white rounded" onClick={handleNextParticipant}>
+            <button className="w-full mt-1 md:mt-3 px-3 py-2 bg-[#ac2424] text-white rounded" onClick={handleNextParticipant}>
               {currentParticipant < numParticipants - 1 ? "Next Participant" : "Proceed to Payment"}
             </button>
           </motion.div>

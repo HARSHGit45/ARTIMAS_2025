@@ -1,6 +1,6 @@
 
 import back from "../../assets/back1.png";
-import huff from "../../assets/Ravenclaw.webp";
+import raven from "../../assets/Ravenclaw.webp";
 import { motion } from "framer-motion";
 
 
@@ -34,18 +34,15 @@ const containerVariants = {
     },
 };
 const  Hackmatrix = () => {
-    
- 
-
   return (
     <div className="hero3 flex min-h-screen items-center justify-center event">
-      <img className="absolute h-[330px] w-[460px] md:h-[360px] md:w-[500px]" src={back} alt="Background" />
+      <img className="absolute h-[330px] w-[460px] md:h-[360px] md:w-[500px] lg:h-[320px] lg:w-[480px] xl:h-[600px] xl:w-[900px]" src={back} alt="Background" />
 
       <motion.img 
          initial="hidden"
          animate={["visible", "bounce"]}
          variants={imageVariants}
-        className="absolute md:h-[28vh] md:w-[28vh] h-[13vh] w-[13vh] md:mb-[43vh] mb-[18vh]" src={huff} alt="Huff" />
+        className="absolute  md:h-[24vh] md:w-[24vh] h-[13vh] md:mt-20 w-[13vh] md:mb-[43vh] mb-[18vh] lg:h-[23vh] lg:w-[23vh] lg:mt-20" src={raven} alt="Huff" />
 
       <motion.div 
          initial="hidden"

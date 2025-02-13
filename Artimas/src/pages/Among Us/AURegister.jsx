@@ -100,7 +100,7 @@ const AURegister = ({ visible, onClose }) => {
 
             {error && <div className="text-red-500 text-md font-bold mt-2">{error}</div>}
 
-            <button className="w-full mt-1 md:mt-3 px-3 py-2 bg-amber-400 text-white rounded" onClick={handleNextStep}>
+            <button className="w-full mt-1 md:mt-3 px-3 py-2 bg-[#004b23] text-white rounded" onClick={handleNextStep}>
               Proceed to Payment
             </button>
           </motion.div>

@@ -4,7 +4,7 @@ import Logo from '../Logo';
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 w-full flex justify-between items-center p-3 sm:p-5 font-bold text-lg bg-black/50 backdrop-blur-md z-50">
+    <header className="fixed top-0 left-0 w-full flex justify-between items-center p-3 sm:p-5 font-bold text-lg bg-black/50 backdrop-blur-md ">
       
       <Logo />
 
