@@ -56,11 +56,8 @@ function App() {
     <Router>
     <Header />
     <FireFliesBackground />
-     
-      <Pointer />
-     
-     
- 
+    <Pointer />
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Houdini" element={<HH />} />
