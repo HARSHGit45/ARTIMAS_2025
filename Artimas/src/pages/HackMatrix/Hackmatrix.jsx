@@ -35,45 +35,48 @@ const containerVariants = {
 };
 const  Hackmatrix = () => {
   return (
+    <>
     <div className="hero3 flex min-h-screen items-center justify-center event">
-      <img className="absolute h-[330px] w-[460px] md:h-[360px] md:w-[500px] lg:h-[320px] lg:w-[480px] xl:h-[600px] xl:w-[900px]" src={back} alt="Background" />
+      <img className="absolute h-[330px] w-[460px] md:h-[360px] md:w-[500px] lg:h-[320px] lg:w-[480px] 2xl:h-[300px] 2xl:w-[490px] " src={back} alt="Background" />
 
       <motion.img 
          initial="hidden"
          animate={["visible", "bounce"]}
          variants={imageVariants}
-        className="absolute  md:h-[24vh] md:w-[24vh] h-[13vh] md:mt-20 w-[13vh] md:mb-[43vh] mb-[18vh] lg:h-[23vh] lg:w-[23vh] lg:mt-20" src={raven} alt="Huff" />
+        className="absolute  md:h-[24vh] md:w-[24vh] h-[13vh] md:mt-20 w-[13vh] md:mb-[43vh] mb-[18vh] lg:h-[23vh] lg:w-[23vh] lg:mt-20 2xl:-mt-2" src={raven} alt="Huff" />
 
       <motion.div 
          initial="hidden"
          animate="visible"
          variants={containerVariants}
-        className="relative flex flex-col items-center mt-[100px] md:mt-[70px] text-black">
+        className="relative flex flex-col items-center mt-[100px] md:mt-[70px] 2xl:mt-6 text-black">
         <motion.h1 
             variants={textVariants}
-            className="text-2xl font-extrabold md:text-3xl md:font-extrabold">Hackmatrix</motion.h1>
+            className="text-2xl font-extrabold md:text-3xl md:font-extrabold 2xl:text-4xl">HACKMATRIX</motion.h1>
         <motion.p 
             variants={textVariants}
             className="text-sm font-semibold md:text-lg md:font-medium">Join us for an unforgettable experience!</motion.p>
 
         <motion.div 
             variants={textVariants}
-            className="mt-4 flex gap-4">
+            className="mt-4 flex gap-4 2xl:mt-4">
           <button 
           
-          className="px-6 py-3 bg-[#FFB900] border-2 border-[#60605C] text-[#000000] rounded-full shadow-lg font-bold">
+          className="px-6 py-3 bg-[#FFB900] border-2 border-[#60605C] text-[#000000] rounded-full shadow-lg font-bold ">
             Register Now
           </button>
           <button className="px-6 py-3 bg-[#0E1A40] border-2 border-[#946B2D] text-[#D4A017] rounded-full shadow-lg font-bold">
             Rulebook
           </button>
 
-         
+          
 
         </motion.div>
       </motion.div>
 
     </div>
+
+    </>
    
   );
 };
