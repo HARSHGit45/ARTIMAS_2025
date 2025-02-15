@@ -14,11 +14,11 @@ import Pixel from './pages/pixel/Pixel.jsx'
 import FireFliesBackground from './components/fireflies/FireFliesBackground.jsx';
 import FoldableMap from './components/FoldableMap.jsx';
 
+
 const Home = () => {
   const navigate = useNavigate();
   
   return (
-   
     <div className="flex flex-col items-center justify-center min-h-screen gap-4 bg-gray-100">
       <h1 className="text-3xl font-bold text-gray-800">Welcome to Events</h1>
       <div className="flex gap-4">
@@ -59,7 +59,6 @@ function App() {
     <Header />
     <FireFliesBackground />
     <Pointer />
-    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Houdini" element={<HH />} />
@@ -67,13 +66,9 @@ function App() {
         <Route path="/datathon" element={<Datathon />} />
         <Route path="/pixel" element={<Pixel />} />
         <Route path="/hackmatrix" element={<Hackmatrix />} />
-
         <Route path='/pixel' element={<Pixel />} />
         <Route path='/foldable' element={<FoldableMap />} />
-
       </Routes>
-
-
       <Footer />
     </Router>
   );

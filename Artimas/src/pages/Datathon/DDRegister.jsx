@@ -63,12 +63,12 @@ const DDRegister = ({ visible, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex justify-center items-center event">
+    <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex justify-center items-center event z-51">
       <motion.div 
         initial="hidden"
         animate="visible"
         variants={imageVariants} 
-        className="w-[540px] h-[540px] md:w-[600px] md:h-[600px] rounded-lg shadow-lg flex flex-col justify-center items-center relative p-4"
+        className="w-[540px] h-[540px] md:w-[600px] md:h-[600px] rounded-lg shadow-lg flex flex-col justify-center items-center relative p-4 md:mt-24"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",

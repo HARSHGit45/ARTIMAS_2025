@@ -261,7 +261,7 @@ const Pointer = () => {
     let isMouseMoving = false;
 
     function getRandomColor() {
-      const colors = ["#ADD8E6", "#87CEFA", "#D8BFD8", "#C6A2FC", "#90EE90", "#98FB98"];
+      const colors = ["#E6C999", "#D4AF75", "#E6C7A3", "#DBB583", "#D6B56A", "#E0C66D"];
       return colors[Math.floor(Math.random() * colors.length)];
     }
 
@@ -306,28 +306,15 @@ const Pointer = () => {
       <img
         src={wand}
         alt="Magic Wand"
-        className="fixed pointer-events-none z-[9999] w-24 h-24"
+        className="fixed pointer-events-none z-[9999] w-28 h-26"
         style={{
-          left: cursorPosition.x - 42,
-          top: cursorPosition.y + 47,
+          left: cursorPosition.x + 47 ,
+          top: cursorPosition.y + 56,
           transform: "translate(-50%, -50%)",
           filter: "drop-shadow(0 0 10px rgba(255, 255, 255, 0.6))",
         }}
       />
 
-      {/* Glowing Cursor Effect */}
-      <Box
-        className="fixed pointer-events-none z-[9999] bg-gray-500 brightness-50 rounded-full"
-        style={{
-          left: cursorPosition.x,
-          top: cursorPosition.y,
-          width: "10px",
-          height: "10px",
-          transform: "translate(-50%, -50%)",
-          backgroundColor: "rgba(247, 247, 247, 0.5)",
-          boxShadow: "0rem 0rem 10rem 3rem rgba(227, 227, 227, 0.35)",
-        }}
-      ></Box>
     </>
   );
 };
