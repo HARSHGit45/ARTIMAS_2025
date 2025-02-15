@@ -149,7 +149,7 @@ const PRegister = ({ visible, onClose }) => {
 
             {uploadedImageUrl && <p className="text-green-600 text-sm font-semibold">Uploaded successfully!</p>}
 
-            <button className="w-64 md:w-72 mt-2 px-4 py-2 bg-blue-500 text-white font-semibold rounded" onClick={handleFileUpload} disabled={uploading}>
+            <button className="w-64 md:w-72 mt-2 px-4 py-2 bg-[#ac2424] text-white font-semibold rounded" onClick={handleFileUpload} disabled={uploading}>
               {uploading ? "Uploading..." : "Upload Screenshot"}
             </button>
           </motion.div>

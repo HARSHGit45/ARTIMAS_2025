@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
 
 import HH from './pages/Houdieni Heist/HH';
 
-import Header from './components/Header/Header.jsx'
+// import Header from './components/Header/Header.jsx'
 import Pointer from './components/cursor/Pointer.jsx';
 import Amngus from './pages/Among Us/Amngus.jsx';
 import Hackmatrix from './pages/HackMatrix/Hackmatrix.jsx';
@@ -13,6 +13,7 @@ import Footer from './components/footer/Footer.jsx';
 import Pixel from './pages/pixel/Pixel.jsx'
 import FireFliesBackground from './components/fireflies/FireFliesBackground.jsx';
 import FoldableMap from './components/FoldableMap.jsx';
+import Navbar from './components/Navbar.jsx';
 
 
 const Home = () => {
@@ -56,7 +57,7 @@ function App() {
     
     
     <Router>
-    <Header />
+    <Navbar />
     <FireFliesBackground />
     <Pointer />
       <Routes>

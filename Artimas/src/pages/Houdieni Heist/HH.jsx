@@ -56,7 +56,7 @@ const  HH= () => {
         className="relative flex flex-col items-center mt-48 md:mt-52 xl:mt-48 lg:mt-50 2xl:mt-56 text-black">
         <motion.h1 
             variants={textVariants}
-            className="text-3xl font-extrabold md:text-3xl md:font-extrabold">Pixel Perfect</motion.h1>
+            className="text-3xl font-extrabold md:text-3xl md:font-extrabold">Houdini Heist</motion.h1>
         <motion.p 
             variants={textVariants}
             className="text-sm font-semibold md:text-lg md:font-medium">Join us for an unforgettable experience!</motion.p>
