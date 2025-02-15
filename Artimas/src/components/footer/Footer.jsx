@@ -3,14 +3,15 @@ import gfg from "../../assets/gfg.png";
 import { GrGithub } from "react-icons/gr";
 import { IoLogoLinkedin } from "react-icons/io";
 import { FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="text-white w-full bg-gradient-to-r from-gray-800 to-black py-6 px-8 flex flex-col items-center justify-between text-center">
       {/* AIMSA & GFG Logos Side by Side */}
       <div className="flex flex-row items-center justify-center mr-9">
-        <img src={aimsa} alt="AIMSA Logo" className="h-16" />
-        <img src={gfg} alt="GFG Logo" className="h-16 mt-4" />
+     <Link to={'https://www.pccoeaimsa.in/'}>   <img src={aimsa} alt="AIMSA Logo" className="h-16" /> </Link>
+      <Link to={'https://gfgpccoe.in/'}>  <img src={gfg} alt="GFG Logo" className="h-16 mt-4" /> </Link>
       </div>
 
       {/* Text and Social Icons */}
@@ -27,9 +28,9 @@ const Footer = () => {
 
         {/* Social Media Icons */}
         <div className="flex gap-3 mt-3 justify-center items-center">
-          <IoLogoLinkedin className="h-9 w-9" />
-          <GrGithub className="h-8 w-8" />
-          <FaInstagram className="h-8 w-8" />
+         <Link to={'https://www.linkedin.com/company/pccoe-s-aimsa/ '}> <IoLogoLinkedin className="h-9 w-9" /> </Link>
+        <Link to={'https://github.com/PCCOE-AiMSA'}>  <GrGithub className="h-8 w-8" /></Link>
+         <Link to={'https://www.instagram.com/pccoe_aimsa/'}> <FaInstagram className="h-8 w-8" /> </Link>
         </div>
       </div>
     </footer>
