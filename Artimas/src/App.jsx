@@ -2,12 +2,17 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
 
 import HH from './pages/Houdieni Heist/HH';
 
-import Header from './components/Header/Header.jsx'
+// import Header from './components/Header/Header.jsx'
 import Pointer from './components/cursor/Pointer.jsx';
 import Amngus from './pages/Among Us/Amngus.jsx';
 import Hackmatrix from './pages/HackMatrix/Hackmatrix.jsx';
 import Datathon from './pages/Datathon/Datathon.jsx';
+import Footer from './components/footer/Footer.jsx';
+import Pixel from './pages/pixel/Pixel.jsx'
 import FireFliesBackground from './components/fireflies/FireFliesBackground.jsx';
+import FoldableMap from './components/FoldableMap.jsx';
+import Navbar from './components/Navbar.jsx';
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -33,8 +38,15 @@ const Home = () => {
           Event 5
         </button>
 
+        <button onClick={() => navigate('/events')} className="px-6 py-3 bg-red-500 text-white rounded-lg shadow-lg hover:bg-red-600">
+          Event 6
+        </button>
+
+
+     
       </div>
     </div>
+ 
   );
 };
 
@@ -43,18 +55,20 @@ function App() {
     
     
     <Router>
-      <FireFliesBackground/>
-      <Pointer />
-      <Header/>
+    <Navbar />
+    <FireFliesBackground />
+    <Pointer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Houdini" element={<HH />} />
         <Route path="/amongus" element={<Amngus />} />
         <Route path="/datathon" element={<Datathon />} />
-        <Route path="/pixel" element={<Home />} />
+        <Route path="/pixel" element={<Pixel />} />
         <Route path="/hackmatrix" element={<Hackmatrix />} />
-
+        <Route path='/pixel' element={<Pixel />} />
+        <Route path='/events' element={<FoldableMap />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

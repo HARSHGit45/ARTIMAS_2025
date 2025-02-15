@@ -1,6 +1,7 @@
 import { useState } from "react";
 import backgroundImage from "../../assets/back.png";
 import { motion } from "framer-motion";
+import qrCodeImage from "../../assets/120.jpg"
 
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -23,14 +24,27 @@ const DDRegister = ({ visible, onClose }) => {
   const [participants, setParticipants] = useState([]);
   const [paymentScreenshot, setPaymentScreenshot] = useState(null);
   const [error, setError] = useState("");
+  const [uploading, setUploading] = useState(false);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
 
   if (!visible) return null;
 
   const handleNumChange = (e) => {
-    const value = Math.min(3, Math.max(1, parseInt(e.target.value) || 1));
-    setNumParticipants(value);
-    setParticipants(Array(value).fill({ name: "", college: "", dept: "", phone: "", email: "" }));
+    const value = e.target.value;
+    
+    // Allow empty input
+    if (value === "") {
+      setNumParticipants("");
+      return;
+    }
+  
+    // Convert input to a valid number and clamp between 1 and 3
+    const numValue = Math.min(3, Math.max(1, Number(value) || 1));
+    
+    setNumParticipants(numValue);
+    setParticipants(Array(numValue).fill({ name: "", college: "", dept: "", phone: "", email: "" }));
   };
+  
 
   const handleChange = (field, value) => {
     const updatedParticipants = [...participants];
@@ -62,13 +76,39 @@ const DDRegister = ({ visible, onClose }) => {
     setPaymentScreenshot(e.target.files[0]);
   };
 
+  const handleFileUpload = async () => {
+    if (!paymentScreenshot) {
+      setError("Please select a file first.");
+      return;
+    }
+    setUploading(true);
+    const data = new FormData();
+    data.append("file", paymentScreenshot);
+    data.append("upload_preset", "among_us_artimas");
+    data.append("cloud_name", "doickrtde");
+
+    try {
+      const res = await fetch("https://api.cloudinary.com/v1_1/doickrtde/image/upload", {
+        method: "POST",
+        body: data,
+      });
+      const uploadedImage = await res.json();
+      setUploadedImageUrl(uploadedImage.secure_url);
+      setUploading(false);
+    } catch (error) {
+      console.error("Upload Error:", error);
+      setError("Failed to upload image. Try again.");
+      setUploading(false);
+    }
+  };
+
   return (
-    <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex justify-center items-center event">
+    <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex justify-center items-center event z-51">
       <motion.div 
         initial="hidden"
         animate="visible"
         variants={imageVariants} 
-        className="w-[540px] h-[540px] md:w-[600px] md:h-[600px] rounded-lg shadow-lg flex flex-col justify-center items-center relative p-4"
+        className="w-[540px] h-[540px] md:w-[600px] md:h-[600px] rounded-lg shadow-lg flex flex-col justify-center items-center relative p-4 md:mt-24"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",
@@ -81,9 +121,8 @@ const DDRegister = ({ visible, onClose }) => {
             className="mb-3 w-64 md:w-full flex flex-col items-center justify-center">
             <label className="block text-black text-sm md:text-lg font-bold mb-1">Number of Participants (Max 3):</label>
             <input
-              type="number"
-              min="1"
-              max="3"
+              type="text"
+              
               value={numParticipants}
               onChange={handleNumChange}
               className="mt-4 bg-transparent border border-black rounded w-38 md:w-48 py-1 px-2 text-gray-700 focus:outline-none"
@@ -151,7 +190,15 @@ const DDRegister = ({ visible, onClose }) => {
           <motion.div 
             variants={textVariants}
             className="w-64 md:w-72">
-            <h3 className="text-black md:text-lg font-bold mb-2">Upload Payment Screenshot</h3>
+            <h3 className="text-black md:text-lg font-bold mb-2">Scan QR & Upload Payment Screenshot</h3>
+                       
+                       {/* QR Code Image */}
+                   
+           
+                       <div className="flex justify-center mb-3">
+                         <img src={qrCodeImage} alt="Payment QR Code" className="w-40 h-40 border border-gray-400 rounded-lg shadow-md" />
+                       </div>
+           
             <input type="file" accept="image/*" onChange={handleFileChange} className="text-black mb-2" />
 
             {paymentScreenshot ? (
@@ -160,8 +207,10 @@ const DDRegister = ({ visible, onClose }) => {
               <p className="text-red-500 text-sm font-semibold">Please upload a screenshot</p>
             )}
 
-            <button className="w-64 md:w-72 mt-2 px-4 py-2 bg-red-500 text-black font-semibold rounded" onClick={onClose} disabled={!paymentScreenshot}>
-              Submit
+            {uploadedImageUrl && <p className="text-green-600 text-sm font-semibold">Uploaded successfully!</p>}
+
+            <button className="w-64 md:w-72 mt-2 px-4 py-2 bg-[#ac2424] text-white font-semibold rounded" onClick={handleFileUpload} disabled={uploading}>
+              {uploading ? "Uploading..." : "Upload Screenshot"}
             </button>
           </motion.div>
         )}
