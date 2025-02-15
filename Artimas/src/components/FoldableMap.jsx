@@ -18,7 +18,7 @@ const FoldableMap = () => {
 
   return (
     <>
-    <div className="relative h-[70vh] md:h-[90vh] 2xl:h-[102vh] flex flex-col items-center">
+    <div className=" mapbg relative h-[70vh] md:h-[100vh] 2xl:h-[102vh] flex flex-col items-center">
       {/* Responsive Container for the Map */}
       <div className="overflow-x-clip mt-64 sm:mt-20 md:mt-96 lg:mt-64 xl:mt-20 2xl:mt-44 rotate-x-64 -rotate-y-4 rotate-z-5" style={{ perspective: "1000px" }}>
         <motion.div animate={isFolded ? "folded" : "open"} variants={{ open: { scale: 1 }, folded: { scale: 0.9 } }} initial="folded">
@@ -61,7 +61,7 @@ const FoldableMap = () => {
         </>
       )}
 
-      <div className="event -mt-12 sm:mt-40 md:-mt-24 lg:-mt-32 xl:-mt-28 2xl:-mt-28 text-center text-lg sm:text-xl md:text-3xl xl:text-2xl font-extrabold text-gray-800">
+      <div className="event -mt-12 sm:mt-40 md:-mt-24 lg:-mt-32 xl:-mt-28 2xl:-mt-28 text-center text-lg sm:text-xl md:text-3xl xl:text-2xl font-extrabold text-white">
         Drag to see magic 🪄✨
       </div>
     </div>
