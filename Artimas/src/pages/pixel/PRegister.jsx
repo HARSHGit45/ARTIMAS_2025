@@ -20,6 +20,8 @@ const PRegister = ({ visible, onClose }) => {
   const [participant, setParticipant] = useState({ name: "", college: "", dept: "", phone: "", email: "" });
   const [paymentScreenshot, setPaymentScreenshot] = useState(null);
   const [error, setError] = useState("");
+  const [uploading, setUploading] = useState(false);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
 
   if (!visible) return null;
 
@@ -38,6 +40,32 @@ const PRegister = ({ visible, onClose }) => {
 
   const handleFileChange = (e) => {
     setPaymentScreenshot(e.target.files[0]);
+  };
+
+  const handleFileUpload = async () => {
+    if (!paymentScreenshot) {
+      setError("Please select a file first.");
+      return;
+    }
+    setUploading(true);
+    const data = new FormData();
+    data.append("file", paymentScreenshot);
+    data.append("upload_preset", "pixel_perfect");
+    data.append("cloud_name", "doickrtde");
+
+    try {
+      const res = await fetch("https://api.cloudinary.com/v1_1/doickrtde/image/upload", {
+        method: "POST",
+        body: data,
+      });
+      const uploadedImage = await res.json();
+      setUploadedImageUrl(uploadedImage.secure_url);
+      setUploading(false);
+    } catch (error) {
+      console.error("Upload Error:", error);
+      setError("Failed to upload image. Try again.");
+      setUploading(false);
+    }
   };
 
   return (
@@ -119,8 +147,10 @@ const PRegister = ({ visible, onClose }) => {
               <p className="text-red-500 text-sm font-semibold">Please upload a screenshot</p>
             )}
 
-            <button className="w-64 md:w-72 mt-2 px-4 py-2 bg-red-500 text-black font-semibold rounded" onClick={onClose} disabled={!paymentScreenshot}>
-              Submit
+            {uploadedImageUrl && <p className="text-green-600 text-sm font-semibold">Uploaded successfully!</p>}
+
+            <button className="w-64 md:w-72 mt-2 px-4 py-2 bg-blue-500 text-white font-semibold rounded" onClick={handleFileUpload} disabled={uploading}>
+              {uploading ? "Uploading..." : "Upload Screenshot"}
             </button>
           </motion.div>
         )}
