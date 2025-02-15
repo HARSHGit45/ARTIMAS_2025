@@ -10,8 +10,8 @@ const Footer = () => {
     <footer className="text-white w-full bg-gradient-to-r from-gray-800 to-black py-6 px-8 flex flex-col items-center justify-between text-center">
       {/* AIMSA & GFG Logos Side by Side */}
       <div className="flex flex-row items-center justify-center mr-9">
-        <img src={aimsa} alt="AIMSA Logo" className="h-16" />
-        <img src={gfg} alt="GFG Logo" className="h-16 mt-4" />
+     <Link to={'https://www.pccoeaimsa.in/'}>   <img src={aimsa} alt="AIMSA Logo" className="h-16" /> </Link>
+      <Link to={'https://gfgpccoe.in/'}>  <img src={gfg} alt="GFG Logo" className="h-16 mt-4" /> </Link>
       </div>
 
       {/* Text and Social Icons */}

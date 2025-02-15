@@ -18,11 +18,11 @@ const Header = () => {
 
       
       <nav className={`sm:flex gap-4 sm:gap-10 absolute sm:static top-full left-0 w-full sm:w-auto bg-black/90 sm:bg-transparent flex-col sm:flex-row text-center ${isOpen ? 'flex' : 'hidden'}`}>
-        <Link to="/hackmatrix" className="event text-white text-sm sm:text-lg p-3 sm:p-0 hover:text-orange-500 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">Hack Matrix</Link>
-        <Link to="/datathon" className="event text-white text-sm sm:text-lg p-3 sm:p-0 hover:text-orange-500 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">Datathon</Link>
-        <Link to="/amongus" className="event text-white text-sm sm:text-lg p-3 sm:p-0 hover:text-orange-500 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">Among US</Link>
-        <Link to="/houdini" className="event text-white text-sm sm:text-lg p-3 sm:p-0 hover:text-orange-500 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">Houdini Heist</Link>
-        <Link to="/pixel" className="event text-white text-sm sm:text-lg p-3 sm:p-0 hover:text-orange-500 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">Pixel Perfect</Link>
+        <Link to="/events" className="event text-white text-sm sm:text-lg p-3 sm:p-0 hover:text-orange-500 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">Events</Link>
+        <Link to="/" className="event text-white text-sm sm:text-lg p-3 sm:p-0 hover:text-orange-500 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">Calender</Link>
+        <Link to="/" className="event text-white text-sm sm:text-lg p-3 sm:p-0 hover:text-orange-500 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">Sponsors</Link>
+        <Link to="/" className="event text-white text-sm sm:text-lg p-3 sm:p-0 hover:text-orange-500 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">Team</Link>
+      
       </nav>
     </header>
   );

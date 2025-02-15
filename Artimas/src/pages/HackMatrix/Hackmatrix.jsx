@@ -3,6 +3,9 @@ import back from "../../assets/back1.png";
 import raven from "../../assets/Ravenclaw.webp";
 import { motion } from "framer-motion";
 
+import { useState } from "react";
+import HMRegister from "./HMRegister";
+
 
 
 const textVariants = {
@@ -34,6 +37,8 @@ const containerVariants = {
     },
 };
 const  Hackmatrix = () => {
+  const [showMyModal, setshowMyModal] = useState(false);
+  
   return (
     <>
     <div className="hero3 flex min-h-screen items-center justify-center event">
@@ -61,7 +66,7 @@ const  Hackmatrix = () => {
             variants={textVariants}
             className="mt-4 flex gap-4 2xl:mt-4">
           <button 
-          
+            onClick={()=> setshowMyModal(true)}
           className="px-6 py-3 bg-[#FFB900] border-2 border-[#60605C] text-[#000000] rounded-full shadow-lg font-bold ">
             Register Now
           </button>
@@ -69,6 +74,8 @@ const  Hackmatrix = () => {
             Rulebook
           </button>
 
+
+          <HMRegister  visible={showMyModal} onClose={() => setshowMyModal(false)}/>
           
 
         </motion.div>

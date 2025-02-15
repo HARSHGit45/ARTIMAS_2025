@@ -1,6 +1,7 @@
 import { useState } from "react";
 import backgroundImage from "../../assets/back.png";
 import { motion } from "framer-motion";
+import qrCodeImage from "../../assets/180.jpg"
 
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -29,9 +30,19 @@ const HHRegister = ({ visible, onClose }) => {
   if (!visible) return null;
 
   const handleNumChange = (e) => {
-    const value = Math.min(3, Math.max(1, parseInt(e.target.value) || 1));
-    setNumParticipants(value);
-    setParticipants(Array(value).fill({ name: "", college: "", dept: "", phone: "", email: "" }));
+    const value = e.target.value;
+    
+    // Allow empty input
+    if (value === "") {
+      setNumParticipants("");
+      return;
+    }
+  
+    // Convert input to a valid number and clamp between 1 and 3
+    const numValue = Math.min(3, Math.max(1, Number(value) || 1));
+    
+    setNumParticipants(numValue);
+    setParticipants(Array(numValue).fill({ name: "", college: "", dept: "", phone: "", email: "" }));
   };
 
   const handleChange = (field, value) => {
@@ -110,21 +121,34 @@ const HHRegister = ({ visible, onClose }) => {
         }}>
         {step === 1 && (
           <motion.div 
-            variants={textVariants}
-            className="mb-3 w-64 md:w-full flex flex-col items-center justify-center">
-            <label className="block text-black text-sm md:text-lg font-bold mb-1">Number of Participants (Max 3):</label>
-            <input
-              type="number"
-              min="1"
-              max="3"
-              value={numParticipants}
-              onChange={handleNumChange}
-              className="mt-4 bg-transparent border border-black rounded w-38 md:w-48 py-1 px-2 text-gray-700 focus:outline-none"
-            />
-            <button className="w-38 md:w-48 mt-3 px-4 py-2 bg-[#ac2424] text-white rounded" onClick={() => setStep(2)}>
-              Next
-            </button>
-          </motion.div>
+  variants={textVariants}
+  className="mb-3 w-64 md:w-full flex flex-col items-center justify-center">
+  
+  <label className="block text-black text-sm md:text-lg font-bold mb-1">
+    Number of Participants (Max 3):
+  </label>
+  
+  <input
+    type="text"
+    value={numParticipants}
+    onChange={(e) => {
+      // Allow only numeric values and ensure the value is between 1 and 3
+      const val = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+      if (val === "" || (Number(val) >= 1 && Number(val) <= 3)) {
+        handleNumChange({ target: { value: val } }); // Update state
+      }
+    }}
+    className="mt-4 bg-transparent border border-black rounded w-38 md:w-48 py-1 px-2 text-gray-700 focus:outline-none"
+  />
+  
+  <button 
+    className="w-38 md:w-48 mt-3 px-4 py-2 bg-yellow-500 text-white rounded" 
+    onClick={() => setStep(2)}>
+    Next
+  </button>
+  
+</motion.div>
+
         )}
 
         {step === 2 && (
@@ -184,7 +208,15 @@ const HHRegister = ({ visible, onClose }) => {
           <motion.div 
             variants={textVariants}
             className="w-64 md:w-72">
-            <h3 className="text-black md:text-lg font-bold mb-2">Upload Payment Screenshot</h3>
+             <h3 className="text-black md:text-lg font-bold mb-2">Scan QR & Upload Payment Screenshot</h3>
+                                  
+                                  {/* QR Code Image */}
+                              
+                      
+                                  <div className="flex justify-center mb-3">
+                                    <img src={qrCodeImage} alt="Payment QR Code" className="w-40 h-40 border border-gray-400 rounded-lg shadow-md" />
+                                  </div>
+
             <input type="file" accept="image/*" onChange={handleFileChange} className="text-black mb-2" />
 
             {paymentScreenshot ? (

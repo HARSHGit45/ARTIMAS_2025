@@ -1,5 +1,6 @@
 import { useState } from "react";
 import backgroundImage from "../../assets/back.png";
+import qrCodeImage from "../../assets/50.jpg";
 import { motion } from "framer-motion";
 
 const textVariants = {
@@ -8,7 +9,7 @@ const textVariants = {
 };
 
 const imageVariants = {
-  hidden: { clipPath: "inset(50% 0 50% 0)" }, 
+  hidden: { clipPath: "inset(50% 0 50% 0)" },
   visible: {
     clipPath: "inset(0 0 0 0)",
     transition: { duration: 1.2, ease: "easeInOut" },
@@ -81,6 +82,7 @@ const AURegister = ({ visible, onClose }) => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}>
+        
         {step === 1 && (
           <motion.div variants={textVariants} className="w-56 md:w-72 mt-2 md:mt-0">
             <h3 className="text-black event font-bold mb-1 md:mb-2">Participant Details</h3>
@@ -109,7 +111,15 @@ const AURegister = ({ visible, onClose }) => {
 
         {step === 2 && (
           <motion.div variants={textVariants} className="w-64 md:w-72">
-            <h3 className="text-black md:text-lg font-bold mb-2">Upload Payment Screenshot</h3>
+            <h3 className="text-black md:text-lg font-bold mb-2">Scan QR & Upload Payment Screenshot</h3>
+            
+            {/* QR Code Image */}
+        
+
+            <div className="flex justify-center mb-3">
+              <img src={qrCodeImage} alt="Payment QR Code" className="w-40 h-40 border border-gray-400 rounded-lg shadow-md" />
+            </div>
+
             <input type="file" accept="image/*" onChange={handleFileChange} className="text-black mb-2" />
 
             {paymentScreenshot ? (
