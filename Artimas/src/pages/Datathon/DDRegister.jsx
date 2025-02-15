@@ -29,10 +29,21 @@ const DDRegister = ({ visible, onClose }) => {
   if (!visible) return null;
 
   const handleNumChange = (e) => {
-    const value = Math.min(3, Math.max(1, parseInt(e.target.value) || 1));
-    setNumParticipants(value);
-    setParticipants(Array(value).fill({ name: "", college: "", dept: "", phone: "", email: "" }));
+    const value = e.target.value;
+    
+    // Allow empty input
+    if (value === "") {
+      setNumParticipants("");
+      return;
+    }
+  
+    // Convert input to a valid number and clamp between 1 and 3
+    const numValue = Math.min(3, Math.max(1, Number(value) || 1));
+    
+    setNumParticipants(numValue);
+    setParticipants(Array(numValue).fill({ name: "", college: "", dept: "", phone: "", email: "" }));
   };
+  
 
   const handleChange = (field, value) => {
     const updatedParticipants = [...participants];
@@ -109,9 +120,8 @@ const DDRegister = ({ visible, onClose }) => {
             className="mb-3 w-64 md:w-full flex flex-col items-center justify-center">
             <label className="block text-black text-sm md:text-lg font-bold mb-1">Number of Participants (Max 3):</label>
             <input
-              type="number"
-              min="1"
-              max="3"
+              type="text"
+              
               value={numParticipants}
               onChange={handleNumChange}
               className="mt-4 bg-transparent border border-black rounded w-38 md:w-48 py-1 px-2 text-gray-700 focus:outline-none"
