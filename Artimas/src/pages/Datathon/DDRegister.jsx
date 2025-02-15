@@ -1,6 +1,7 @@
 import { useState } from "react";
 import backgroundImage from "../../assets/back.png";
 import { motion } from "framer-motion";
+import qrCodeImage from "../../assets/120.jpg"
 
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -189,7 +190,15 @@ const DDRegister = ({ visible, onClose }) => {
           <motion.div 
             variants={textVariants}
             className="w-64 md:w-72">
-            <h3 className="text-black md:text-lg font-bold mb-2">Upload Payment Screenshot</h3>
+            <h3 className="text-black md:text-lg font-bold mb-2">Scan QR & Upload Payment Screenshot</h3>
+                       
+                       {/* QR Code Image */}
+                   
+           
+                       <div className="flex justify-center mb-3">
+                         <img src={qrCodeImage} alt="Payment QR Code" className="w-40 h-40 border border-gray-400 rounded-lg shadow-md" />
+                       </div>
+           
             <input type="file" accept="image/*" onChange={handleFileChange} className="text-black mb-2" />
 
             {paymentScreenshot ? (
