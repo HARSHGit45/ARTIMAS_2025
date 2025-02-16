@@ -1,7 +1,7 @@
 import { useState } from "react";
 import backgroundImage from "../../assets/back.png";
 import { motion } from "framer-motion";
-import qrCodeImage from "../../assets/180.jpg"
+import qrCodeImage from "../../assets/180.jpg";
 
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -9,41 +9,25 @@ const textVariants = {
 };
 
 const imageVariants = {
-  hidden: { clipPath: "inset(50% 0 50% 0)" }, 
+  hidden: { clipPath: "inset(50% 0 50% 0)" },
   visible: {
     clipPath: "inset(0 0 0 0)",
     transition: { duration: 1.2, ease: "easeInOut" },
   },
 };
 
-
 const HHRegister = ({ visible, onClose }) => {
   const [step, setStep] = useState(1);
-  const [numParticipants, setNumParticipants] = useState(1);
   const [currentParticipant, setCurrentParticipant] = useState(0);
-  const [participants, setParticipants] = useState([]);
+  const [participants, setParticipants] = useState(
+    Array(3).fill({ name: "", college: "", dept: "", phone: "", email: "" })
+  );
   const [paymentScreenshot, setPaymentScreenshot] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
   const [error, setError] = useState("");
 
   if (!visible) return null;
-
-  const handleNumChange = (e) => {
-    const value = e.target.value;
-    
-    // Allow empty input
-    if (value === "") {
-      setNumParticipants("");
-      return;
-    }
-  
-    // Convert input to a valid number and clamp between 1 and 3
-    const numValue = Math.min(3, Math.max(1, Number(value) || 1));
-    
-    setNumParticipants(numValue);
-    setParticipants(Array(numValue).fill({ name: "", college: "", dept: "", phone: "", email: "" }));
-  };
 
   const handleChange = (field, value) => {
     const updatedParticipants = [...participants];
@@ -62,9 +46,9 @@ const HHRegister = ({ visible, onClose }) => {
       return;
     }
 
-    setError(""); 
+    setError("");
 
-    if (currentParticipant < numParticipants - 1) {
+    if (currentParticipant < 2) {
       setCurrentParticipant(currentParticipant + 1);
     } else {
       setStep(3);
@@ -74,8 +58,6 @@ const HHRegister = ({ visible, onClose }) => {
   const handleFileChange = (e) => {
     setPaymentScreenshot(e.target.files[0]);
   };
-
-
 
   const handleFileUpload = async () => {
     if (!paymentScreenshot) {
@@ -102,9 +84,6 @@ const HHRegister = ({ visible, onClose }) => {
       setUploading(false);
     }
   };
-  
-
-
 
   return (
     <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex justify-center items-center event z-51">
@@ -121,112 +100,30 @@ const HHRegister = ({ visible, onClose }) => {
         }}>
         {step === 1 && (
           <motion.div 
-  variants={textVariants}
-  className="mb-3 w-64 md:w-full flex flex-col items-center justify-center">
-  
-  <label className="block text-black text-sm md:text-lg font-bold mb-1">
-    Number of Participants (Max 3):
-  </label>
-  
-  <input
-    type="text"
-    value={numParticipants}
-    onChange={(e) => {
-      // Allow only numeric values and ensure the value is between 1 and 3
-      const val = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
-      if (val === "" || (Number(val) >= 1 && Number(val) <= 3)) {
-        handleNumChange({ target: { value: val } }); // Update state
-      }
-    }}
-    className="mt-4 bg-transparent border border-black rounded w-38 md:w-48 py-1 px-2 text-gray-700 focus:outline-none"
-  />
-  
-  <button 
-    className="w-38 md:w-48 mt-3 px-4 py-2 bg-[#ac2424] text-white rounded" 
-    onClick={() => setStep(2)}>
-    Next
-  </button>
-  
-</motion.div>
-
-        )}
-
-        {step === 2 && (
-          <motion.div 
             variants={textVariants}
-            className="w-56 md:w-72 mt-2 md:mt-0">
+            className="w-56 md:w-72 mt-2  md:mt-0">
             <h3 className="text-black event font-bold mb-1 md:mb-2">Participant {currentParticipant + 1}</h3>
-            <label className="block text-black text-sm md:text-md font-bold md:mb-1">Name:</label>
-            <input
-              type="text"
-              value={participants[currentParticipant]?.name || ""}
-              onChange={(e) => handleChange("name", e.target.value)}
-              className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700"
-            />
+            <input type="text" placeholder="Name" value={participants[currentParticipant]?.name || ""} onChange={(e) => handleChange("name", e.target.value)} className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700" />
+<input type="text" placeholder="College" value={participants[currentParticipant]?.college || ""} onChange={(e) => handleChange("college", e.target.value)} className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700 mt-4" />
+<input type="text" placeholder="Dept" value={participants[currentParticipant]?.dept || ""} onChange={(e) => handleChange("dept", e.target.value)} className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700 mt-4" />
+<input type="text" placeholder="Phone No" value={participants[currentParticipant]?.phone || ""} onChange={(e) => handleChange("phone", e.target.value)} className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700 mt-4" />
+<input type="email" placeholder="Email" value={participants[currentParticipant]?.email || ""} onChange={(e) => handleChange("email", e.target.value)} className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700 mt-4" />
 
-            <label className="block text-black text-sm md:text-md font-bold md:mb-1 mt-2">College:</label>
-            <input
-              type="text"
-              value={participants[currentParticipant]?.college || ""}
-              onChange={(e) => handleChange("college", e.target.value)}
-              className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700"
-            />
-
-            <label className="block text-black text-sm md:text-md font-bold md:mb-1 mt-2">Dept:</label>
-            <input
-              type="text"
-              value={participants[currentParticipant]?.dept || ""}
-              onChange={(e) => handleChange("dept", e.target.value)}
-              className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700"
-            />
-
-            <label className="block text-black text-sm md:text-md font-bold md:mb-1 mt-2">Phone No:</label>
-            <input
-              type="text"
-              value={participants[currentParticipant]?.phone || ""}
-              onChange={(e) => handleChange("phone", e.target.value)}
-              className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700"
-            />
-
-            <label className="block text-black text-sm md:text-md font-bold md:mb-1 mt-2">Email:</label>
-            <input
-              type="email"
-              value={participants[currentParticipant]?.email || ""}
-              onChange={(e) => handleChange("email", e.target.value)}
-              className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700"
-            />
-
-            {error && <div className="text-red-500 text-md font-bold mt-1 md:mt-2">{error}</div>}
-
-            <button className="w-full mt-1 md:mt-3 px-3 py-2 bg-[#ac2424] text-white rounded" onClick={handleNextParticipant}>
-              {currentParticipant < numParticipants - 1 ? "Next Participant" : "Proceed to Payment"}
+            {error && <div className="text-red-500 text-md font-bold mt-2">{error}</div>}
+            <button className="w-full mt-3 px-3 py-2 bg-[#ac2424] text-white rounded" onClick={handleNextParticipant}>
+              {currentParticipant < 2 ? "Next Participant" : "Proceed to Payment"}
             </button>
           </motion.div>
         )}
-
         {step === 3 && (
-          <motion.div 
-            variants={textVariants}
-            className="w-64 md:w-72">
-             <h3 className="text-black md:text-lg font-bold mb-2">Scan QR & Upload Payment Screenshot</h3>
-                                  
-                                  {/* QR Code Image */}
-                              
-                      
-                                  <div className="flex justify-center mb-3">
-                                    <img src={qrCodeImage} alt="Payment QR Code" className="w-40 h-40 border border-gray-400 rounded-lg shadow-md" />
-                                  </div>
-
+          <motion.div variants={textVariants} className="w-64 md:w-72">
+            <h3 className="text-black md:text-lg font-bold mb-2">Scan QR & Upload Payment Screenshot</h3>
+            <div className="flex justify-center mb-3">
+              <img src={qrCodeImage} alt="Payment QR Code" className="w-40 h-40 border border-gray-400 rounded-lg shadow-md" />
+            </div>
             <input type="file" accept="image/*" onChange={handleFileChange} className="text-black mb-2" />
-
-            {paymentScreenshot ? (
-              <p className="text-green-600 text-sm font-semibold">File selected: {paymentScreenshot.name}</p>
-            ) : (
-              <p className="text-red-500 text-sm font-semibold">Please upload a screenshot</p>
-            )}
-
+            {paymentScreenshot ? <p className="text-green-600 text-sm font-semibold">File selected: {paymentScreenshot.name}</p> : <p className="text-red-500 text-sm font-semibold">Please upload a screenshot</p>}
             {uploadedImageUrl && <p className="text-green-600 text-sm font-semibold">Uploaded successfully!</p>}
-
             <button className="w-64 md:w-72 mt-2 px-4 py-2 bg-[#ac2424] text-white font-semibold rounded" onClick={handleFileUpload} disabled={uploading}>
               {uploading ? "Uploading..." : "Upload Screenshot"}
             </button>
