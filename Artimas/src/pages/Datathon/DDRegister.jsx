@@ -84,7 +84,7 @@ const DDRegister = ({ visible, onClose }) => {
     setUploading(true);
     const data = new FormData();
     data.append("file", paymentScreenshot);
-    data.append("upload_preset", "among_us_artimas");
+    data.append("upload_preset", "datathon_gfg");
     data.append("cloud_name", "doickrtde");
 
     try {
