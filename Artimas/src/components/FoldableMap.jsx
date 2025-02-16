@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, useMotionValue, useTransform, useMotionValueEvent } from "framer-motion";
 import coordinate from "../assets/coordinate.png";
+import { Link } from "react-router-dom"
 
 
 const FoldableMap = () => {
@@ -79,7 +80,6 @@ const FoldableMap = () => {
   );
 };
 
-// Reusable Standing Event Card Component
 const EventCard = ({ title }) => {
   return (
     <motion.div
@@ -88,13 +88,15 @@ const EventCard = ({ title }) => {
         backgroundImage: `url(${coordinate})`
       }}
     >
-      <div className="absolute inset-0 -mt-4 sm:-mt-6 md:-mt-6 lg:-mt-8 xl:-mt-8 flex items-center justify-center bg-opacity-40 rounded-lg ">
-        <p className="text-black font-extrabold text-center text-[9px] sm:text-base md:text-[15px] lg:text-[19px] xl:text-[16px] 2xl:text-[16px] event">{title}</p>
+      <div className="absolute inset-0 -mt-4 sm:-mt-6 md:-mt-6 lg:-mt-8 xl:-mt-8 flex items-center justify-center bg-opacity-40 rounded-lg">
+        <Link
+          to={`/${title.toLowerCase().replace(/\s+/g, '')}`} 
+          className="text-black font-extrabold text-center text-[9px] sm:text-base md:text-[15px] lg:text-[19px] xl:text-[16px] 2xl:text-[16px] event cursor-pointer"
+        >
+          {title}
+        </Link>
       </div>
     </motion.div>
-
-
-
   );
 };
 

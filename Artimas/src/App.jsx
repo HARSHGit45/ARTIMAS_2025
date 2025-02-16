@@ -55,26 +55,24 @@ const Home = () => {
 
 function App() {
   return (
-    
-    
+  
     <Router>
-    <Navbar />
-    <FireFliesBackground />
-    <Pointer />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Houdini" element={<HH />} />
-        <Route path="/amongus" element={<Amngus />} />
-        <Route path="/datathon" element={<Datathon />} />
-        <Route path="/pixel" element={<Pixel />} />
-        <Route path="/hackmatrix" element={<Hackmatrix />} />
-        <Route path='/pixel' element={<Pixel />} />
-        <Route path='/events' element={<FoldableMap />} />
-        <Route path='/team' element={<Team />} />
-        <Route path='/sponsor' element={<Sponsor/>} />
-        <Route path='/calander' element={<Calander/>} />
-      </Routes>
-      <Footer />
+      <Navbar />
+      <FireFliesBackground />
+      <Pointer />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/houdiniheist" element={<HH />} />
+          <Route path="/amongus" element={<Amngus />} />
+          <Route path="/datathon" element={<Datathon />} />
+          <Route path="/hackmatrix" element={<Hackmatrix />} />
+          <Route path='/pixelperfect' element={<Pixel />} />
+          <Route path='/events' element={<FoldableMap />} />
+          <Route path='/team' element={<Team />} />
+          <Route path='/sponsor' element={<Sponsor/>} />
+          <Route path='/calander' element={<Calander/>} />
+        </Routes>
+        <Footer />
     </Router>
   );
 
