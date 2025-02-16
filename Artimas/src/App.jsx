@@ -67,6 +67,7 @@ function App() {
         <Route path="/hackmatrix" element={<Hackmatrix />} />
         <Route path='/pixel' element={<Pixel />} />
         <Route path='/events' element={<FoldableMap />} />
+        
       </Routes>
       <Footer />
     </Router>

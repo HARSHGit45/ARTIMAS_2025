@@ -142,7 +142,7 @@ const HHRegister = ({ visible, onClose }) => {
   />
   
   <button 
-    className="w-38 md:w-48 mt-3 px-4 py-2 bg-yellow-500 text-white rounded" 
+    className="w-38 md:w-48 mt-3 px-4 py-2 bg-[#ac2424] text-white rounded" 
     onClick={() => setStep(2)}>
     Next
   </button>
