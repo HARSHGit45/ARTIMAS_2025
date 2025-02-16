@@ -38,8 +38,8 @@ const DDRegister = ({ visible, onClose }) => {
       return;
     }
   
-    // Convert input to a valid number and clamp between 1 and 3
-    const numValue = Math.min(3, Math.max(1, Number(value) || 1));
+
+    const numValue = Math.min(2, Math.max(1, Number(value) || 1));
     
     setNumParticipants(numValue);
     setParticipants(Array(numValue).fill({ name: "", college: "", dept: "", phone: "", email: "" }));
@@ -119,7 +119,7 @@ const DDRegister = ({ visible, onClose }) => {
           <motion.div 
             variants={textVariants}
             className="mb-3 w-64 md:w-full flex flex-col items-center justify-center">
-            <label className="block text-black text-sm md:text-lg font-bold mb-1">Number of Participants (Max 3):</label>
+            <label className="block text-black text-sm md:text-lg font-bold mb-1">Number of Participants (Max 2):</label>
             <input
               type="text"
               

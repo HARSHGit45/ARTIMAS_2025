@@ -35,14 +35,14 @@ html {
 }
 
 .hero6 {
-  background: linear-gradient(rgba(1, 1, 1, 0.5), rgba(1, 1, 1, 0.5)), url("./assets/sponsor_bg.png");
+  background: linear-gradient(rgba(1, 1, 1, 0.843), rgba(1, 1, 1, 0.5)), url("./assets/sponsor_bg.png");
   background-size: cover;
 }
 
 
 .hero7 {
-  background: linear-gradient(rgba(1, 1, 1, 0.5), rgba(1, 1, 1, 0.5)), url("./assets/calanderbg.png");
-  background-size: cover;
+  background: linear-gradient(rgba(1, 1, 1, 0.863), rgba(1, 1, 1, 0.5)), url("./assets/calanderbg.png");
+  background-size: contain;
 }
 
 body {

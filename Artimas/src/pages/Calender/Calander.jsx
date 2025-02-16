@@ -1,31 +1,35 @@
-import React from 'react'
-
-import c1 from '../../assets/calender1.png';
-import c2 from '../../assets/calender2.png';
+import React from 'react';
+import c1 from '../../assets/1.png';
+import c2 from '../../assets/2.png';
 
 const Calendar = () => {
   return (
-    <div className="hero7 flex min-h-screen items-center justify-center event relative">
-      {/* Scrollable Container */}
-      <div className=" mt-20 w-[120vh] overflow-x-auto whitespace-nowrap snap-x snap-mandatory flex items-center justify-start space-x-5 custom-scroll">
-        
-        {/* Image 1 */}
-        <img 
-          src={c1}
-          alt="Event Timetable 1" 
-          className="w-[120vh] h-auto object-contain opacity-70 snap-center"
-        />
-        
-        {/* Image 2 */}
-        <img 
-          src={c2}
-          alt="Event Timetable 2" 
-          className="w-[120vh] h-auto object-contain opacity-70 snap-center"
-        />
+    <div className="hero7 flex flex-col min-h-screen items-center justify-center event relative py-28">
+      <h2 className="text-3xl font-bold text-white mb-6">Event Timetable</h2>
 
+      <div className="flex flex-col items-center gap-10">
+        {/* Image 1 */}
+        <div className="relative w-[120vh] p-2 bg-gradient-to-br from-white/40 to-white/10 rounded-xl shadow-xl">
+          
+          <img 
+            src={c1}
+            alt="Event Timetable 1" 
+            className="w-full h-auto object-contain border-4 border-white rounded-lg"
+          />
+        </div>
+
+        {/* Image 2 */}
+        <div className="relative w-[120vh] p-2 bg-gradient-to-br from-white/10 to-white/10 rounded-xl shadow-xl">
+          
+          <img 
+            src={c2}
+            alt="Event Timetable 2" 
+            className="w-full h-auto object-contain border-4 border-white rounded-lg"
+          />
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Calendar
+export default Calendar;

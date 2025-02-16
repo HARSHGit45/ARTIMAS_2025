@@ -50,16 +50,17 @@ export const TEAM =  [
     {
       img: "https://res.cloudinary.com/da8ma5izt/image/upload/v1739696240/my_r4di02.jpg",
       name: "Prasad Pawar",
+      job:"Junior Executive",
       linkedin: "https://www.linkedin.com/in/prasadpawar21/",
       instagram: "https://www.instagram.com/prasadpawar566/",
       github: "https://github.com/Prasadpawar21"
     },
     {
-      img: "#",
-      name: "Prasad Pawar",
+      img: "?", //currently unavailable
+      name: "Anuj Chandak",
       job: "Junior Executive",
-      linkedin: "https://www.linkedin.com/in/prasadpawar21/",
-      instagram: "https://www.instagram.com/prasadpawar566/",
-      github: "https://github.com/Prasadpawar21"
-    },
+      linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
+      instagram: "https://www.instagram.com/anuj_1142110/",
+      github: "https://github.com/AnujChandak0110"
+    }
 ]
