@@ -22,11 +22,9 @@ const Footer = () => {
 
       {/* Text and Social Icons */}
       <div className="event flex flex-col text-center">
-        <p className="mt-3">Created with ❤️ by AiMSA-GFG Technical Team</p>
+        <p className="mt-3">Created with ❤️ by <Link className="text-orange-500" to={'/team'}>AiMSA-GFG Technical Team </Link></p>
         <p>
-        <Link to="/team" style={{ color: "#03a9f4", textDecoration: "none", fontWeight: "bold" }}>
-          Meet Our Team
-        </Link>
+        
       </p>
         <p>
           <a 

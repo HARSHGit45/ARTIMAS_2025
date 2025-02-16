@@ -22,7 +22,7 @@ const Navbar = () => {
               className="text-white transition duration-300 hover:text-orange-600 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">
               Events
             </Link>
-            <Link to="/calandar"
+            <Link to="/calander"
               className="text-white transition duration-300 hover:text-orange-600 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">
               Calendar
             </Link>
