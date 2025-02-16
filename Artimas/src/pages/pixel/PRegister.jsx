@@ -1,8 +1,8 @@
 import { useState } from "react";
 import backgroundImage from "../../assets/back.png";
 import { motion } from "framer-motion";
-import qrCodeImage from "../../assets/20.jpg"
-
+import qrCodeImage from "../../assets/20.jpg";
+import { FaWhatsapp } from "react-icons/fa";
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
@@ -23,6 +23,7 @@ const PRegister = ({ visible, onClose }) => {
   const [error, setError] = useState("");
   const [uploading, setUploading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
+  const whatsappLink = "https://chat.whatsapp.com/HsMRzUSbaGw9apc6q2LW8o";
   let url = "";
   if (!visible) return null;
 
@@ -202,6 +203,13 @@ const PRegister = ({ visible, onClose }) => {
             className="w-64 md:w-72">
 
             <h3 className="text-black md:text-lg font-bold mb-2">Registered Successfully....!</h3>
+            <button
+              className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg"
+              onClick={() => window.open(whatsappLink, "_blank")}
+            >
+              <FaWhatsapp size={20} />
+              Join WhatsApp Community
+            </button>
           </motion.div>
         )}
       </motion.div>
