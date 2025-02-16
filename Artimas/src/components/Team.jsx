@@ -74,13 +74,13 @@ const Team = () => {
           {TEAM.map((member, index) => (
             <motion.div
               key={index}
-              className="relative flex flex-col items-center teamid rounded-2xl shadow-lg p-6 w-[30vh] h-[40vh] transition transform"
+              className="relative flex flex-col items-center teamid rounded-2xl shadow-lg p-6 w-[32vh] h-[39vh] md:w-[29vh] md:h-[39vh] lg:w-[250px] lg:h-auto xl:w-[280px] xl:h-auto 2xl:w-[320px] 2xl:h-auto transition transform"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={projectVariants}>
 
-              <div className="w-24 h-24 mt-21 rounded-full overflow-hidden border-4 border-amber-950">
+              <div className="w-24 h-24 md:w-24 md:h-24 xl:w-24 xl:h-24 mt-27 xl:mt-28 lg:mt-28 md:mt-22 2xl:mt-32 rounded-full overflow-hidden border-4 border-amber-950">
                 <img
                   src={member.img}
                   alt={member.name}
