@@ -1,5 +1,6 @@
 import React from 'react';
 import wnj from '../../assets/wetnjoy.jpg';
+import tm from '../../assets/time.png'
 
 const Sponsor = () => {
   return (
@@ -11,17 +12,10 @@ const Sponsor = () => {
         <h2 className="text-3xl font-bold mb-6">Our Sponsors</h2>
 
         {/* Sponsor Logos (Grid with 3 Columns) */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-3  justify-center items-center gap-6">
           <img src={wnj} alt="Sponsor 1" className="w-60 h-auto object-contain transition-transform duration-300 hover:scale-105 hover:shadow-lg" />
-          <img src={wnj} alt="Sponsor 2" className="w-60 h-auto object-contain transition-transform duration-300 hover:scale-105 hover:shadow-lg" />
-          <img src={wnj} alt="Sponsor 3" className="w-60 h-auto object-contain transition-transform duration-300 hover:scale-105 hover:shadow-lg" />
-          <img src={wnj} alt="Sponsor 4" className="w-60 h-auto object-contain transition-transform duration-300 hover:scale-105 hover:shadow-lg" />
-          <img src={wnj} alt="Sponsor 5" className="w-60 h-auto object-contain transition-transform duration-300 hover:scale-105 hover:shadow-lg" />
-          <img src={wnj} alt="Sponsor 6" className="w-60 h-auto object-contain transition-transform duration-300 hover:scale-105 hover:shadow-lg" />
-          <img src={wnj} alt="Sponsor 7" className="w-60 h-auto object-contain transition-transform duration-300 hover:scale-105 hover:shadow-lg" />
-          <img src={wnj} alt="Sponsor 8" className="w-60 h-auto object-contain transition-transform duration-300 hover:scale-105 hover:shadow-lg" />
-          <img src={wnj} alt="Sponsor 9" className="w-60 h-auto object-contain transition-transform duration-300 hover:scale-105 hover:shadow-lg" />
-        </div>
+          <img src={tm} alt="Sponsor 2" className=" w-60 h-auto object-contain transition-transform duration-300 hover:scale-105 hover:shadow-lg" />
+           </div>
 
         {/* Thank You Message */}
         <p className="mt-6 text-lg text-center font-medium">
