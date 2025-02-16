@@ -210,6 +210,17 @@ const PRegister = ({ visible, onClose }) => {
               <FaWhatsapp size={20} />
               Join WhatsApp Community
             </button>
+
+            <button
+            
+            onClick={onClose}
+
+             className="flex items-center gap-2 bg-blue-500  text-white px-4 py-2 rounded-lg mt-4">Close</button>
+
+          
+
+
+
           </motion.div>
         )}
       </motion.div>
