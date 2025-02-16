@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
 
 .map-image {
   background-image: 
@@ -31,6 +34,17 @@
   background-size: cover;
 }
 
+.hero6 {
+  background: linear-gradient(rgba(1, 1, 1, 0.5), rgba(1, 1, 1, 0.5)), url("./assets/sponsor_bg.png");
+  background-size: cover;
+}
+
+
+.hero7 {
+  background: linear-gradient(rgba(1, 1, 1, 0.5), rgba(1, 1, 1, 0.5)), url("./assets/calanderbg.png");
+  background-size: cover;
+}
+
 body {
   cursor: none;
 }
@@ -47,27 +61,26 @@ body {
 .hero3 {
   background: linear-gradient(rgba(7, 1, 1, 0.434), rgba(10, 10, 10, 0.5)), url("./assets/about-background.png");
   background-size: cover;
-
-  
-  
 }
 
 .hero4 {
   background: linear-gradient(rgba(25, 26, 25, 0.5), rgba(22, 21, 21, 0.5)), url("./assets/contact-background.png");
   background-size: cover;
-
-  
 }
 
 .hero5 {
   background: linear-gradient(rgba(25, 26, 25, 0.5), rgba(22, 21, 21, 0.5)), url("./assets/pixell.png");
   background-size: cover;
-
-  
 }
 
 .event {
     font-family: 'Cinzel', sans-serif;
+}
+
+.teamid {
+  background:  url("./assets/team-id.png");
+  background-size: cover;
+  
 }
 
 @keyframes move {
@@ -80,3 +93,13 @@ body {
 }
 
 
+
+
+.custom-scroll::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in Chrome/Safari */
+}
+
+.custom-scroll {
+  -ms-overflow-style: none;  /* Hides scrollbar in IE/Edge */
+  scrollbar-width: none;  /* Hides scrollbar in Firefox */
+}

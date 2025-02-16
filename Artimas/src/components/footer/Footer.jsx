@@ -6,18 +6,26 @@ import { FaInstagram } from "react-icons/fa";
 import { FiPhoneOutgoing } from "react-icons/fi";
 import { Link } from 'react-router-dom';
 
+
 const Footer = () => {
   return (
     <footer className="text-white w-full bg-gradient-to-r from-gray-800 to-black py-6 px-8 flex flex-col items-center justify-between text-center">
       {/* AIMSA & GFG Logos Side by Side */}
       <div className="flex flex-row items-center justify-center mr-9">
-     <Link to={'https://www.pccoeaimsa.in/'}>   <img src={aimsa} alt="AIMSA Logo" className="h-16" /> </Link>
-      <Link to={'https://gfgpccoe.in/'}>  <img src={gfg} alt="GFG Logo" className="h-16 mt-4" /> </Link>
+        <Link to={'https://www.pccoeaimsa.in/'}>   
+            <img src={aimsa} alt="AIMSA Logo" className="h-16" /> 
+        </Link>
+        <Link to={'https://gfgpccoe.in/'}>  
+            <img src={gfg} alt="GFG Logo" className="h-16 mt-4" /> 
+        </Link>
       </div>
 
       {/* Text and Social Icons */}
       <div className="event flex flex-col text-center">
-        <p className="mt-3">Created with ❤️ by AiMSA-GFG Technical Team</p>
+        <p className="mt-3">Created with ❤️ by <Link className="text-orange-500" to={'/team'}>AiMSA-GFG Technical Team </Link></p>
+        <p>
+        
+      </p>
         <p>
           <a 
             href="mailto:pccoeaimsa2022@gmail.com" 

@@ -12,6 +12,9 @@ import Pixel from './pages/pixel/Pixel.jsx'
 import FireFliesBackground from './components/fireflies/FireFliesBackground.jsx';
 import FoldableMap from './components/FoldableMap.jsx';
 import Navbar from './components/Navbar.jsx';
+import Team from './components/Team.jsx';
+import Sponsor from './pages/sponsor/Sponsor.jsx';
+import Calander from './pages/Calender/Calander.jsx';
 
 
 const Home = () => {
@@ -38,7 +41,7 @@ const Home = () => {
           Event 5
         </button>
 
-        <button onClick={() => navigate('/events')} className="px-6 py-3 bg-red-500 text-white rounded-lg shadow-lg hover:bg-red-600">
+        <button onClick={() => navigate('/teams')} className="px-6 py-3 bg-red-500 text-white rounded-lg shadow-lg hover:bg-red-600">
           Event 6
         </button>
 
@@ -67,10 +70,14 @@ function App() {
         <Route path="/hackmatrix" element={<Hackmatrix />} />
         <Route path='/pixel' element={<Pixel />} />
         <Route path='/events' element={<FoldableMap />} />
+        <Route path='/team' element={<Team />} />
+        <Route path='/sponsor' element={<Sponsor/>} />
+        <Route path='/calander' element={<Calander/>} />
       </Routes>
       <Footer />
     </Router>
   );
+
 }
 
 export default App;

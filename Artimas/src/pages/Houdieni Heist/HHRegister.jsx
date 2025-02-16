@@ -110,21 +110,34 @@ const HHRegister = ({ visible, onClose }) => {
         }}>
         {step === 1 && (
           <motion.div 
-            variants={textVariants}
-            className="mb-3 w-64 md:w-full flex flex-col items-center justify-center">
-            <label className="block text-black text-sm md:text-lg font-bold mb-1">Number of Participants (Max 3):</label>
-            <input
-              type="number"
-              min="1"
-              max="3"
-              value={numParticipants}
-              onChange={handleNumChange}
-              className="mt-4 bg-transparent border border-black rounded w-38 md:w-48 py-1 px-2 text-gray-700 focus:outline-none"
-            />
-            <button className="w-38 md:w-48 mt-3 px-4 py-2 bg-[#ac2424] text-white rounded" onClick={() => setStep(2)}>
-              Next
-            </button>
-          </motion.div>
+  variants={textVariants}
+  className="mb-3 w-64 md:w-full flex flex-col items-center justify-center">
+  
+  <label className="block text-black text-sm md:text-lg font-bold mb-1">
+    Number of Participants (Max 3):
+  </label>
+  
+  <input
+    type="text"
+    value={numParticipants}
+    onChange={(e) => {
+      // Allow only numeric values and ensure the value is between 1 and 3
+      const val = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+      if (val === "" || (Number(val) >= 1 && Number(val) <= 3)) {
+        handleNumChange({ target: { value: val } }); // Update state
+      }
+    }}
+    className="mt-4 bg-transparent border border-black rounded w-38 md:w-48 py-1 px-2 text-gray-700 focus:outline-none"
+  />
+  
+  <button 
+    className="w-38 md:w-48 mt-3 px-4 py-2 bg-[#ac2424] text-white rounded" 
+    onClick={() => setStep(2)}>
+    Next
+  </button>
+  
+</motion.div>
+
         )}
 
         {step === 2 && (
