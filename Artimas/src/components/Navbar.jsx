@@ -30,10 +30,7 @@ const Navbar = () => {
               className="text-white transition duration-300 hover:text-orange-600 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">
               Sponsor
             </Link>
-            <Link to="/team"
-              className="text-white transition duration-300 hover:text-orange-600 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">
-              Team
-            </Link>
+           
           
         </div>
 
@@ -74,12 +71,8 @@ const Navbar = () => {
             >
               Sponsor
             </Link>
-            <Link to="/team"
-              className="text-white hover:text-stone-400 transition duration-300"
-              onClick={handleLinkClick}
-            >
-              Team
-            </Link>
+           
+          
         </div>
       )}
     </nav>
