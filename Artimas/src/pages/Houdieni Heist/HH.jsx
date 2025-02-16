@@ -69,7 +69,10 @@ const  HH= () => {
           className="px-6 py-3 bg-[#ac2424] border-2 border-[#60605C] text-[#FFFFFF] rounded-full shadow-lg font-bold ">
             Register Now
           </button>
-          <button className="px-6 py-3 bg-[#000000] border-2 border-[#946B2D] text-[#FFFFFF] rounded-full shadow-lg font-bold">
+          <button className="px-6 py-3 bg-[#000000] border-2 border-[#946B2D] text-[#FFFFFF] rounded-full shadow-lg font-bold"
+           onClick={() => window.open("https://docs.google.com/document/d/1QnW0FzMfxm_9NV8OzNvpLli_aZDBrElDKG1RrlBV328/edit?usp=sharing", "_blank")}
+           
+          >
             Rulebook
           </button>
 

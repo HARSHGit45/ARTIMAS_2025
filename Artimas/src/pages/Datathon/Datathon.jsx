@@ -70,7 +70,10 @@ const  Datathon= () => {
           className="px-6 py-3 bg-[#FFB900] border-2 border-[#60605C] text-[#000000] rounded-full shadow-lg font-bold ">
             Register Now
           </button>
-          <button className="px-6 py-3 bg-[#0E1A40] border-2 border-[#946B2D] text-[#D4A017] rounded-full shadow-lg font-bold">
+          <button className="px-6 py-3 bg-[#0E1A40] border-2 border-[#946B2D] text-[#D4A017] rounded-full shadow-lg font-bold"
+          onClick={() => window.open("https://docs.google.com/document/d/1xSBOumsXrf-uJfvNQ4kituFJXxEd0LWnlk_mq3yikXo/edit?usp=sharing", "_blank")}
+ 
+          >
             Rulebook
           </button>
 
