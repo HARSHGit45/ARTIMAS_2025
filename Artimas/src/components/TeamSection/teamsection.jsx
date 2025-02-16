@@ -1,7 +1,8 @@
 import React from "react";
 import "./teamsection.css"; // Import your existing CSS
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { GrGithub } from "react-icons/gr";
+import { IoLogoLinkedin } from "react-icons/io";
+import { FaInstagram } from "react-icons/fa";
 
 // Sample team members (you can modify or fetch dynamically)
 const teamMembers = [
@@ -15,7 +16,7 @@ const Team = () => {
       <div className="container">
         {teamMembers.map((member) => (
           <div
-            className="cards"
+            className="cards bg-contain bg-no-repeat rounded-2xl"
             key={member.id}
             style={{ backgroundImage: `url("/images/id_img.jpg")` }} // ✅ Background image
           >
@@ -31,17 +32,17 @@ const Team = () => {
                 <ul className="social_icons">
                   <li>
                     <a href="#">
-                      <FontAwesomeIcon icon={faInstagram} />
+                      <FaInstagram />
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <FontAwesomeIcon icon={faLinkedin} />
+                      <IoLogoLinkedin />
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <FontAwesomeIcon icon={faGithub} />
+                      <GrGithub />
                     </a>
                   </li>
                 </ul>
