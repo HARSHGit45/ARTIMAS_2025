@@ -24,7 +24,7 @@ const Home = () => {
     <div className="flex flex-col items-center justify-center min-h-screen gap-4 bg-gray-100">
       <h1 className="text-3xl font-bold text-gray-800">Welcome to Events</h1>
       <div className="flex gap-4">
-        <button onClick={() => navigate('/Houdini')} className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600">
+        <button onClick={() => navigate('/houdiniheist')} className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600">
           Event 1
         </button>
         <button onClick={() => navigate('/amongus')} className="px-6 py-3 bg-green-500 text-white rounded-lg shadow-lg hover:bg-green-600">
@@ -33,7 +33,7 @@ const Home = () => {
         <button onClick={() => navigate('/datathon')} className="px-6 py-3 bg-yellow-500 text-white rounded-lg shadow-lg hover:bg-yellow-600">
           Event 3
         </button>
-        <button onClick={() => navigate('/pixel')} className="px-6 py-3 bg-red-500 text-white rounded-lg shadow-lg hover:bg-red-600">
+        <button onClick={() => navigate('/pixelperfect')} className="px-6 py-3 bg-red-500 text-white rounded-lg shadow-lg hover:bg-red-600">
           Event 4
         </button>
 
