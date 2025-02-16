@@ -11,7 +11,7 @@ const Logo = () => {
       <img
         src={logo}
         alt="Logo"
-        className="relative z-10 h-72 w-44 sm:h-14 ml-4 brightness-130 drop-shadow-[0_0_20px_rgba(173,216,230,0.8)]"
+        className="relative z-10 h-12 w-44 sm:h-14 ml-4 brightness-130 drop-shadow-[0_0_20px_rgba(173,216,230,0.8)]"
         
       />
 

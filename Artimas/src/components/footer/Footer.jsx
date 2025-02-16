@@ -7,8 +7,6 @@ import { FiPhoneOutgoing } from "react-icons/fi";
 import { Link } from 'react-router-dom';
 
 
-import { Link  } from "react-router-dom";
-
 const Footer = () => {
   return (
     <footer className="text-white w-full bg-gradient-to-r from-gray-800 to-black py-6 px-8 flex flex-col items-center justify-between text-center">
