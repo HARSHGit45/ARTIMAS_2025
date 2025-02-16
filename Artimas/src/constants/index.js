@@ -55,11 +55,10 @@ export const TEAM =  [
       github: "https://github.com/Prasadpawar21"
     },
     {
-      img: "#",
-      name: "Prasad Pawar",
-      job: "Junior Executive",
-      linkedin: "https://www.linkedin.com/in/prasadpawar21/",
-      instagram: "https://www.instagram.com/prasadpawar566/",
-      github: "https://github.com/Prasadpawar21"
-    },
+      img: "?", //currently unavailable
+      name: "Anuj Chandak",
+      linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
+      instagram: "https://www.instagram.com/anuj_1142110/",
+      github: "https://github.com/AnujChandak0110"
+    }
 ]
