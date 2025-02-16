@@ -1,8 +1,7 @@
 import { useState } from "react";
 import backgroundImage from "../../assets/back.png";
-import qrCodeImage from "../../assets/50.jpg";
 import { motion } from "framer-motion";
-
+import qrCodeImage from "../../assets/20.jpg"
 
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -17,29 +16,30 @@ const imageVariants = {
   },
 };
 
-const AURegister = ({ visible, onClose }) => {
+const PRegister = ({ visible, onClose }) => {
   const [step, setStep] = useState(1);
   const [participant, setParticipant] = useState({ name: "", college: "", dept: "", phone: "", email: "" });
   const [paymentScreenshot, setPaymentScreenshot] = useState(null);
+  const [error, setError] = useState("");
   const [uploading, setUploading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
-  const [error, setError] = useState("");
   let url = "";
+  if (!visible) return null;
+
   const emailRegex1 = /^[a-zA-Z]+\.[a-zA-Z]+[0-9]{2}@pccoepune\.org$/;
   const emailRegex2 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const phoneRegex = /^[6-9]\d{9}$/;
-  if (!visible) return null;
 
   const handleChange = (field, value) => {
     setParticipant({ ...participant, [field]: value });
   };
 
   const handleNextStep = () => {
-    if (!participant.name || !participant.college || !participant.dept || !participant.phone || !participant.email) { 
+    if (!participant.name || !participant.college || !participant.dept || !participant.phone || !participant.email) {
       setError("All fields are required!");
       return;
     }
-    else if(emailRegex1.test(participant.email) && phoneRegex.test(participant.phone)){
+    else if (emailRegex1.test(participant.email) && phoneRegex.test(participant.phone)) {
       handleSubmit();
       setStep(3);
     }
@@ -48,7 +48,7 @@ const AURegister = ({ visible, onClose }) => {
       console.log(participant.email);
       console.log(emailRegex1.test(participant.email));
     }
-    else{
+    else {
       alert("Invalid Email or Phone Number");
     }
     setError("");
@@ -59,7 +59,7 @@ const AURegister = ({ visible, onClose }) => {
   };
 
   const handleSubmit = async () => {
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/AmongUs/register`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/PixelPerfect/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +80,7 @@ const AURegister = ({ visible, onClose }) => {
     setUploading(true);
     const data = new FormData();
     data.append("file", paymentScreenshot);
-    data.append("upload_preset", "among_us_artimas");
+    data.append("upload_preset", "pixel_perfect");
     data.append("cloud_name", "doickrtde");
 
     try {
@@ -92,6 +92,7 @@ const AURegister = ({ visible, onClose }) => {
       setUploadedImageUrl(uploadedImage.secure_url);
       url = uploadedImage.secure_url;
       setUploading(false);
+      console.log(url);
       handleSubmit();
       setStep(3);
     } catch (error) {
@@ -114,35 +115,63 @@ const AURegister = ({ visible, onClose }) => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}>
-
         {step === 1 && (
-          <motion.div variants={textVariants} className="w-56 md:w-72 mt-2 md:mt-0">
+          <motion.div
+            variants={textVariants}
+            className="w-56 md:w-72 mt-2 md:mt-0">
             <h3 className="text-black event font-bold mb-1 md:mb-2">Participant Details</h3>
             <label className="block text-black text-sm md:text-md font-bold mb-1">Name:</label>
-            <input type="text" value={participant.name} onChange={(e) => handleChange("name", e.target.value)} className="bg-transparent border border-black rounded w-full py-1 px-3 text-gray-700" />
+            <input
+              type="text"
+              value={participant.name}
+              onChange={(e) => handleChange("name", e.target.value)}
+              className="bg-transparent border border-black rounded w-full py-1 px-3 text-gray-700"
+            />
 
             <label className="block text-black text-sm md:text-md font-bold md:mb-1 mt-2">College:</label>
-            <input type="text" value={participant.college} onChange={(e) => handleChange("college", e.target.value)} className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700" />
+            <input
+              type="text"
+              value={participant.college}
+              onChange={(e) => handleChange("college", e.target.value)}
+              className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700"
+            />
 
             <label className="block text-black text-sm md:text-md font-bold md:mb-1 mt-2">Dept:</label>
-            <input type="text" value={participant.dept} onChange={(e) => handleChange("dept", e.target.value)} className="bg-transparent border border-black rounded w-full py-1 px-3 text-gray-700" />
+            <input
+              type="text"
+              value={participant.dept}
+              onChange={(e) => handleChange("dept", e.target.value)}
+              className="bg-transparent border border-black rounded w-full py-1 px-3 text-gray-700"
+            />
 
             <label className="block text-black text-sm md:text-md font-bold md:mb-1 mt-2">Phone No:</label>
-            <input type="text" value={participant.phone} onChange={(e) => handleChange("phone", e.target.value)} className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700" />
+            <input
+              type="text"
+              value={participant.phone}
+              onChange={(e) => handleChange("phone", e.target.value)}
+              className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700"
+            />
 
             <label className="block text-black text-sm md:text-md font-bold md:mb-1 mt-2">Email:</label>
-            <input type="email" value={participant.email} onChange={(e) => handleChange("email", e.target.value)} className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700" />
+            <input
+              type="email"
+              value={participant.email}
+              onChange={(e) => handleChange("email", e.target.value)}
+              className="bg-transparent border border-black rounded w-full md:py-1 px-3 text-gray-700"
+            />
 
             {error && <div className="text-red-500 text-md font-bold mt-2">{error}</div>}
 
-            <button className="w-full mt-1 md:mt-3 px-3 py-2 bg-[#004b23] text-white rounded" onClick={handleNextStep}>
+            <button className="w-full mt-1 md:mt-3 px-3 py-2 bg-amber-400 text-white rounded" onClick={handleNextStep}>
               Proceed to Payment
             </button>
           </motion.div>
         )}
 
         {step === 2 && (
-          <motion.div variants={textVariants} className="w-64 md:w-72">
+          <motion.div
+            variants={textVariants}
+            className="w-64 md:w-72">
             <h3 className="text-black md:text-lg font-bold mb-2">Scan QR & Upload Payment Screenshot</h3>
 
             {/* QR Code Image */}
@@ -180,4 +209,4 @@ const AURegister = ({ visible, onClose }) => {
   );
 };
 
-export default AURegister;
+export default PRegister;

@@ -1,12 +1,9 @@
 
 import back from "../../assets/back1.png";
-import raven from "../../assets/Ravenclaw.webp";
+import colin from "../../assets/colin.png";
 import { motion } from "framer-motion";
-
+import PRegister from "../pixel/PRegister";
 import { useState } from "react";
-import HMRegister from "./HMRegister";
-
-
 
 const textVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -36,19 +33,19 @@ const containerVariants = {
       },
     },
 };
-const  Hackmatrix = () => {
+const  HH= () => {
+    
   const [showMyModal, setshowMyModal] = useState(false);
-  
+
   return (
-    <>
-    <div className="hero3 flex min-h-screen items-center justify-center event">
-      <img className="absolute mt-32 h-[310px] w-[460px] md:h-[360px] md:w-[500px] lg:h-[320px] lg:w-[480px] 2xl:h-[320px] 2xl:w-[480px]" src={back} alt="Background" />
+    <div className="hero5 flex min-h-screen items-center justify-center event">
+      <img className="absolute mt-32 h-[310px] w-[460px] md:h-[360px] md:w-[500px] lg:h-[320px] lg:w-[480px] 2xl:h-[320px] 2xl:w-[480px] " src={back} alt="Background" />
 
       <motion.img 
          initial="hidden"
          animate={["visible", "bounce"]}
          variants={imageVariants}
-        className="absolute  md:h-[24vh] md:w-[24vh] h-[20vh] w-[20vh] md:mt-48 md:mb-[43vh] mb-[18vh] lg:h-[23vh] lg:w-[23vh] lg:mt-52 xl:mt-52 2xl:mt-58" src={raven} alt="Raven" />
+        className="absolute  md:h-[24vh] md:w-[24vh] h-[20vh] w-[20vh] md:mt-48 md:mb-[43vh] mb-[18vh] lg:h-[23vh] lg:w-[23vh] lg:mt-52 xl:mt-52 2xl:mt-58" src={colin} alt="Colin" />
 
       <motion.div 
          initial="hidden"
@@ -57,7 +54,7 @@ const  Hackmatrix = () => {
         className="relative flex flex-col items-center mt-48 md:mt-52 xl:mt-48 lg:mt-50 2xl:mt-56 text-black">
         <motion.h1 
             variants={textVariants}
-            className="text-2xl font-extrabold md:text-3xl md:font-extrabold 2xl:text-4xl">HACKMATRIX</motion.h1>
+            className="text-2xl font-extrabold md:text-3xl md:font-extrabold 2xl:text-4xl">Pixel Perfect</motion.h1>
         <motion.p 
             variants={textVariants}
             className="text-sm font-semibold md:text-lg md:font-medium">Join us for an unforgettable experience!</motion.p>
@@ -66,26 +63,22 @@ const  Hackmatrix = () => {
             variants={textVariants}
             className="mt-4 flex gap-4 2xl:mt-4">
           <button 
-            onClick={()=> setshowMyModal(true)}
-          className="px-6 py-3 bg-[#FFB900] border-2 border-[#60605C] text-[#000000] rounded-full shadow-lg font-bold ">
+          onClick={()=> setshowMyModal(true)}
+          className="px-6 py-3 bg-[#ac2424] border-2 border-[#60605C] text-[#FFFFFF] rounded-full shadow-lg font-bold ">
             Register Now
           </button>
-          <button className="px-6 py-3 bg-[#0E1A40] border-2 border-[#946B2D] text-[#D4A017] rounded-full shadow-lg font-bold">
+          <button className="px-6 py-3 bg-[#000000] border-2 border-[#946B2D] text-[#FFFFFF] rounded-full shadow-lg font-bold">
             Rulebook
           </button>
 
-
-          <HMRegister  visible={showMyModal} onClose={() => setshowMyModal(false)}/>
-          
+          <PRegister  visible={showMyModal} onClose={() => setshowMyModal(false)} />
 
         </motion.div>
       </motion.div>
 
     </div>
-
-    </>
    
   );
 };
 
-export default Hackmatrix;
+export default HH;

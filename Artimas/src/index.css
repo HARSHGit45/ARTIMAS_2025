@@ -2,13 +2,16 @@
 @import "tailwindcss";
 
 
-
-
 .map-image {
   background-image: 
     linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 30%),
     url("./assets/map.png");
   background-size: 300%;
+}
+
+.mapbg {
+    background:linear-gradient(rgba(9, 0, 0, 0.849), rgba(22, 21, 21, 0.5)),  url("./assets/map_bg.png");
+    background-size: cover;
 }
 
 .map-image:nth-child(1) {
@@ -23,18 +26,9 @@
 }
 
 
-
-
-
-
-
-
-
 .hero1 {
   background: linear-gradient(rgba(26, 25, 25, 0.5), rgba(22, 21, 21, 0.5)), url("./assets/home-background.png");
   background-size: cover;
- 
-  
 }
 
 body {
@@ -51,14 +45,22 @@ body {
 
 
 .hero3 {
-  background: linear-gradient(rgba(25, 26, 25, 0.5), rgba(22, 21, 21, 0.5)), url("./assets/about-background.png");
+  background: linear-gradient(rgba(7, 1, 1, 0.434), rgba(10, 10, 10, 0.5)), url("./assets/about-background.png");
   background-size: cover;
+
   
   
 }
 
 .hero4 {
   background: linear-gradient(rgba(25, 26, 25, 0.5), rgba(22, 21, 21, 0.5)), url("./assets/contact-background.png");
+  background-size: cover;
+
+  
+}
+
+.hero5 {
+  background: linear-gradient(rgba(25, 26, 25, 0.5), rgba(22, 21, 21, 0.5)), url("./assets/pixell.png");
   background-size: cover;
 
   
