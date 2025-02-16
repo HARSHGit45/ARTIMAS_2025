@@ -70,6 +70,7 @@ const ThreeScene = () => {
       noOfStars: 1000,
       moonColor: 0x91a3b0,
       skyColor: 0x546bab,
+      lightIntensity: 1,
     };
 
     function isPhone() {
@@ -82,10 +83,10 @@ const ThreeScene = () => {
       params = {
         showStats: false,
         userInteracting: true,
-        fov: 30,
+        fov: 40,
         fxaa: false,
         taa: false,
-        bloomPass: true,
+        bloomPass: false,
         taaSampleLevel: 1,
         nightAmount: 0,
         bloomStrength: 1,
@@ -103,6 +104,7 @@ const ThreeScene = () => {
         noOfStars: 400,
         moonColor: 0x91a3b0,
         skyColor: 0x546bab,
+        lightIntensity: 2,
       };
     }
 
@@ -253,7 +255,7 @@ const ThreeScene = () => {
         params.skyColor,
         THREE.BackSide
       );
-      const skyboxGeometry = new THREE.SphereGeometry(17, segments, segments);
+      const skyboxGeometry = new THREE.SphereGeometry(40, segments, segments);
       const skybox = new THREE.Mesh(skyboxGeometry, material);
       scene.add(skybox);
     }
@@ -262,11 +264,11 @@ const ThreeScene = () => {
       const starGeometry = new THREE.BufferGeometry();
       const starMaterial = new THREE.PointsMaterial({
         color: 0xffffff,
-        size: 0.2,
+        size: 0.3,
         sizeAttenuation: true,
       });
       const starVertices = [];
-      const radius = 15;
+      const radius = 25;
       const yMin = 0;
       const yMax = 150;
       let count = 0;
@@ -309,13 +311,13 @@ const ThreeScene = () => {
     function setupLights() {
       const directionalLight = new THREE.DirectionalLight(
         params.moonColor,
-        2
+        2*params.lightIntensity
       );
       directionalLight.position.set(-2, 1, 1);
-      const ambientLight = new THREE.AmbientLight(0xccdbdf, 0.9);
-      const moonlight = new THREE.DirectionalLight(params.moonColor, 1);
-      moonlight.position.set(-10, 3, -10);
-      const moonGeometry = new THREE.SphereGeometry(0.9, 16, 16);
+      const ambientLight = new THREE.AmbientLight(0xccdbdf, 0.9*params.lightIntensity);
+      const moonlight = new THREE.DirectionalLight(params.moonColor, 1*params.lightIntensity);
+      moonlight.position.set(-20, 3, -20);
+      const moonGeometry = new THREE.SphereGeometry(2, 16, 16);
       const moonMaterial = new THREE.MeshStandardMaterial({
         color: params.moonColor,
         emissive: params.moonColor,
@@ -400,6 +402,7 @@ const ThreeScene = () => {
         labelDiv.style.height = '50px';
         if (i == 4) {
           labelDiv.style.height = '65px';
+          labelDiv.style.width = '65px';
         }
         labelDiv.style.width = '50px';
         labelDiv.addEventListener('click', () => {
@@ -435,45 +438,48 @@ const ThreeScene = () => {
       composer.setSize(window.innerWidth, window.innerHeight);
     }
     let hasDragged = false;
-    function onPointerDown(event) {
-      hasDragged = false;
-      if (params.enableHorizontalSpin) {
-        isDragging = true;
-        prevMouseX = event.clientX || event.touches[0].clientX;
-        initialRadius = Math.sqrt(
-          camera.position.x ** 2 + camera.position.z ** 2
-        );
-        userAngle = Math.atan2(camera.position.z, camera.position.x);
-        userSpun = true;
-        // resetUserSpunWithCooldown();
-      }
-      params.userInteracting = true;
-    }
+    let pointerDownX = null; // Records where the pointer started
 
-    function onPointerMove(event) {
-      if (isDragging && params.enableHorizontalSpin) {
-        hasDragged = true;
-        const clientX = event.clientX || event.touches[0].clientX;
-        const delta = clientX - prevMouseX;
-        userAngle += delta * 0.01;
-        prevMouseX = clientX;
-        // resetUserSpunWithCooldown();
-      }
-    }
+function onPointerDown(event) {
+  hasDragged = false;
+  // Capture initial X coordinate (works for both mouse and touch)
+  pointerDownX = event.clientX || event.touches[0].clientX;
+  prevMouseX = pointerDownX;
+  if (params.enableHorizontalSpin) {
+    isDragging = true;
+    // Set initial values
+    initialRadius = Math.sqrt(camera.position.x ** 2 + camera.position.z ** 2);
+    userAngle = Math.atan2(camera.position.z, camera.position.x);
+    // Do not immediately set userSpun to true; wait until movement is detected
+    userSpun = false;
+  }
+  params.userInteracting = true;
+}
 
-    function onPointerUp() {
-      isDragging = false;
-      params.userInteracting = false;
-      if (!hasDragged) {
-        userSpun = false;
-      }
+function onPointerMove(event) {
+  if (isDragging && params.enableHorizontalSpin) {
+    const clientX = event.clientX || event.touches[0].clientX;
+    const delta = clientX - prevMouseX;
+    // Check if the total movement exceeds a threshold (e.g., 5 pixels)
+    if (Math.abs(clientX - pointerDownX) > 16) {
+      hasDragged = true;
+      userSpun = true; // Only enable spinning if there is significant movement
     }
+    // Update the angle regardless (if it's not a tap, this won't matter)
+    userAngle += delta * 0.01;
+    prevMouseX = clientX;
+  }
+}
 
-    function onPointerUp() {
-      isDragging = false;
-      params.userInteracting = false;
-      // resetUserSpunWithCooldown();
-    }
+function onPointerUp() {
+  isDragging = false;
+  params.userInteracting = false;
+  // If there wasn't enough movement, consider it a tap and disable spinning
+  if (!hasDragged) {
+    userSpun = false;
+  }
+}
+
 
     function setupEventListeners() {
       window.addEventListener("resize", onWindowResize, false);
@@ -502,14 +508,14 @@ const ThreeScene = () => {
 
       if (stats) stats.begin();
       // Use deltaTime (in seconds) for smooth, frame-independent updates:
-      const dt = deltaTime * 0.001;
-      const time = clock.getElapsedTime();
+      // Subtract the offset so that animation effectively starts at time=0.
+      const time = clock.getElapsedTime() - startTime;
       if (params.enableHorizontalSpin && userSpun) {
         camera.position.x = initialRadius * Math.cos(userAngle + time * 0.1);
         camera.position.z = initialRadius * Math.sin(userAngle + time * 0.1);
       } else {
-        camera.position.x = params.cameraInitialX * Math.cos(time * 0.1);
-        camera.position.z = params.cameraInitialZ * Math.sin(time * 0.1);
+        camera.position.x = initialRadius * Math.cos(time * 0.1);
+        camera.position.z = initialRadius * Math.sin(time * 0.1);
       }
       camera.position.y = params.cameraInitialY;
       camera.lookAt(params.lookAt);
@@ -526,7 +532,7 @@ const ThreeScene = () => {
     }
 
     // -- INITIALIZATION -----------------------------------------------------
-    let startTime;
+    let startTime =clock.getElapsedTime();
     function init() {
       // Mark the very start of initialization
       performance.mark('init-start');
