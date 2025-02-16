@@ -3,6 +3,7 @@ import backgroundImage from "../../assets/back.png";
 import qrCodeImage from "../../assets/50.jpg";
 import { motion } from "framer-motion";
 
+
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
@@ -23,7 +24,10 @@ const AURegister = ({ visible, onClose }) => {
   const [uploading, setUploading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
   const [error, setError] = useState("");
-
+  let url = "";
+  const emailRegex1 = /^[a-zA-Z]+\.[a-zA-Z]+[0-9]{2}@pccoepune\.org$/;
+  const emailRegex2 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const phoneRegex = /^[6-9]\d{9}$/;
   if (!visible) return null;
 
   const handleChange = (field, value) => {
@@ -35,12 +39,37 @@ const AURegister = ({ visible, onClose }) => {
       setError("All fields are required!");
       return;
     }
+    else if(emailRegex1.test(participant.email) && phoneRegex.test(participant.phone)){
+      handleSubmit();
+      setStep(3);
+    }
+    else if (emailRegex2.test(participant.email) && phoneRegex.test(participant.phone)) {
+      setStep(2);
+      console.log(participant.email);
+      console.log(emailRegex1.test(participant.email));
+    }
+    else{
+      alert("Invalid Email or Phone Number");
+    }
     setError("");
-    setStep(2);
   };
 
   const handleFileChange = (e) => {
     setPaymentScreenshot(e.target.files[0]);
+  };
+
+  const handleSubmit = async () => {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/AmongUs/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name: participant.name, college_name: participant.college, department: participant.dept, phone_number: participant.phone, email: participant.email, payment_ss: url }),
+    });
+
+    const result = await response.json();
+    console.log("Registered Successfully!");
+    console.log(result);
   };
 
   const handleFileUpload = async () => {
@@ -61,7 +90,10 @@ const AURegister = ({ visible, onClose }) => {
       });
       const uploadedImage = await res.json();
       setUploadedImageUrl(uploadedImage.secure_url);
+      url = uploadedImage.secure_url;
       setUploading(false);
+      handleSubmit();
+      setStep(3);
     } catch (error) {
       console.error("Upload Error:", error);
       setError("Failed to upload image. Try again.");
@@ -71,10 +103,10 @@ const AURegister = ({ visible, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex justify-center items-center event z-51">
-      <motion.div 
+      <motion.div
         initial="hidden"
         animate="visible"
-        variants={imageVariants} 
+        variants={imageVariants}
         className="w-[540px] h-[540px] md:w-[600px] md:h-[600px] rounded-lg shadow-lg flex flex-col justify-center items-center relative p-4 md:mt-24"
         style={{
           backgroundImage: `url(${backgroundImage})`,
@@ -82,7 +114,7 @@ const AURegister = ({ visible, onClose }) => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}>
-        
+
         {step === 1 && (
           <motion.div variants={textVariants} className="w-56 md:w-72 mt-2 md:mt-0">
             <h3 className="text-black event font-bold mb-1 md:mb-2">Participant Details</h3>
@@ -112,9 +144,9 @@ const AURegister = ({ visible, onClose }) => {
         {step === 2 && (
           <motion.div variants={textVariants} className="w-64 md:w-72">
             <h3 className="text-black md:text-lg font-bold mb-2">Scan QR & Upload Payment Screenshot</h3>
-            
+
             {/* QR Code Image */}
-        
+
 
             <div className="flex justify-center mb-3">
               <img src={qrCodeImage} alt="Payment QR Code" className="w-40 h-40 border border-gray-400 rounded-lg shadow-md" />
@@ -133,6 +165,14 @@ const AURegister = ({ visible, onClose }) => {
             <button className="w-64 md:w-72 mt-2 px-4 py-2 bg-[#ac2424] text-white font-semibold rounded" onClick={handleFileUpload} disabled={uploading}>
               {uploading ? "Uploading..." : "Upload Screenshot"}
             </button>
+          </motion.div>
+        )}
+        {step === 3 && (
+          <motion.div
+            variants={textVariants}
+            className="w-64 md:w-72">
+
+            <h3 className="text-black md:text-lg font-bold mb-2">Registered Successfully....!</h3>
           </motion.div>
         )}
       </motion.div>

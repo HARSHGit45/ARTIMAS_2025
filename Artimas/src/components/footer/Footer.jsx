@@ -4,6 +4,7 @@ import { GrGithub } from "react-icons/gr";
 import { IoLogoLinkedin } from "react-icons/io";
 import { FaInstagram } from "react-icons/fa";
 import { FiPhoneOutgoing } from "react-icons/fi";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
