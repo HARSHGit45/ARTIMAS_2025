@@ -24,12 +24,12 @@ export const TEAM =  [
       github: "#"
     },
     {
-      img: "https://res.cloudinary.com/dgcs8uhuz/image/upload/c_scale,w_300,q_auto,f_webp/v1734778174/prithvi_x5qcfu.png",
-      name: "Prithviraj more",
+      img: "#",
+      name: "Ketan Agrawal",
       job: "Junior Executive",
-      linkedin: "https://www.linkedin.com/in/prithviraj44/",
-      instagram: "https://www.instagram.com/prithxvhie.44/",
-      github: "https://github.com/Prithxvhie44"
+      linkedin: "https://www.linkedin.com/in/ketan-agrawal-832b28252/",
+      instagram: "https://www.instagram.com/ketanagrawal286/",
+      github: "https://github.com/KetanAgrawal11/"
     },
     {
       img: "https://res.cloudinary.com/dgcs8uhuz/image/upload/c_scale,w_300,q_auto,f_webp/v1734778939/Giriwar_aue7pe.png",
@@ -40,13 +40,15 @@ export const TEAM =  [
       github: "https://github.com/om67891"
     },
     {
-      img: "#",
-      name: "Ketan Agrawal",
+      img: "https://res.cloudinary.com/dgcs8uhuz/image/upload/c_scale,w_300,q_auto,f_webp/v1734778174/prithvi_x5qcfu.png",
+      name: "Prithviraj more",
       job: "Junior Executive",
-      linkedin: "https://www.linkedin.com/in/ketan-agrawal-832b28252/",
-      instagram: "https://www.instagram.com/ketanagrawal286/",
-      github: "https://github.com/KetanAgrawal11/"
+      linkedin: "https://www.linkedin.com/in/prithviraj44/",
+      instagram: "https://www.instagram.com/prithxvhie.44/",
+      github: "https://github.com/Prithxvhie44"
     },
+   
+    
     {
       img: "https://res.cloudinary.com/da8ma5izt/image/upload/v1739696240/my_r4di02.jpg",
       name: "Prasad Pawar",
