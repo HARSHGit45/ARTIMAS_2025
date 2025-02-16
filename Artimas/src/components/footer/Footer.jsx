@@ -4,7 +4,8 @@ import { GrGithub } from "react-icons/gr";
 import { IoLogoLinkedin } from "react-icons/io";
 import { FaInstagram } from "react-icons/fa";
 import { FiPhoneOutgoing } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
 
 const Footer = () => {
   return (
@@ -22,6 +23,11 @@ const Footer = () => {
       {/* Text and Social Icons */}
       <div className="event flex flex-col text-center">
         <p className="mt-3">Created with ❤️ by AiMSA-GFG Technical Team</p>
+        <p>
+        <Link to="/team" style={{ color: "#03a9f4", textDecoration: "none", fontWeight: "bold" }}>
+          Meet Our Team
+        </Link>
+      </p>
         <p>
           <a 
             href="mailto:pccoeaimsa2022@gmail.com" 

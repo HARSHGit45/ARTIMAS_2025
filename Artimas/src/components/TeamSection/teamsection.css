@@ -24,7 +24,8 @@ body{
     position: relative;
     width: 300px;
     height: 400px;
-    background: linear-gradient(#2196f3, #2196f3 50%, #1d3548 30%, #1d3548);
+    /* background: linear-gradient(#2196f3, #2196f3 50%, #1d3548 30%, #1d3548); */
+    background-image: url('id_img.jpg');
     margin: 10px;
     border-radius: 20px;
     overflow: hidden;

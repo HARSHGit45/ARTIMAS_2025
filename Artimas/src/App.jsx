@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import Team from "./components/TeamSection/teamsection.jsx";
 
 import HH from './pages/Houdieni Heist/HH';
 
@@ -67,7 +68,7 @@ function App() {
         <Route path="/hackmatrix" element={<Hackmatrix />} />
         <Route path='/pixel' element={<Pixel />} />
         <Route path='/events' element={<FoldableMap />} />
-        
+        <Route path="/team" element={<Team/>} />
       </Routes>
       <Footer />
     </Router>
