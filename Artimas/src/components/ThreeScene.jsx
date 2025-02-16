@@ -47,7 +47,7 @@ const ThreeScene = () => {
 
     // Global parameters
     let params = {
-      showStats: true,
+      showStats: false,
       userInteracting: true,
       fov: 27,
       fxaa: false,
@@ -494,7 +494,7 @@ const ThreeScene = () => {
       if (!animate.lastFrameTime) animate.lastFrameTime = now;
       const deltaTime = now - animate.lastFrameTime;
 
-      // const isPhone = /Mobi|Android/i.test(navigator.userAgent);
+      const isPhone = /Mobi|Android/i.test(navigator.userAgent);
       const frameInterval = isPhone ? 1000 / 30 : 1000 / 100; // 30 FPS for phones
 
       if (deltaTime < frameInterval) return;

@@ -7,8 +7,6 @@ import { FiPhoneOutgoing } from "react-icons/fi";
 import { Link } from 'react-router-dom';
 
 
-// import { Link  } from "react-router-dom";
-
 const Footer = () => {
   return (
     <footer className="text-white w-full bg-gradient-to-r from-gray-800 to-black py-6 px-8 flex flex-col items-center justify-between text-center">
@@ -24,11 +22,9 @@ const Footer = () => {
 
       {/* Text and Social Icons */}
       <div className="event flex flex-col text-center">
-        <p className="mt-3">Created with ❤️ by AiMSA-GFG Technical Team</p>
+        <p className="mt-3">Created with ❤️ by <Link className="text-orange-500" to={'/team'}>AiMSA-GFG Technical Team </Link></p>
         <p>
-        <Link to="/team" style={{ color: "#03a9f4", textDecoration: "none", fontWeight: "bold" }}>
-          Meet Our Team
-        </Link>
+        
       </p>
         <p>
           <a 
