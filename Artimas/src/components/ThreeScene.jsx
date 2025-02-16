@@ -131,11 +131,11 @@ const ThreeScene = () => {
     };
 
     const sites = [
-      "/Houdini",
+      "/houdiniheist",
       "/amongus",
-      "/hackmatrix",
       "/datathon",
-      "/pixel",
+      "/hackmatrix",
+      "/pixelperfect",
     ];
 
     // -- UTILITY FUNCTIONS --------------------------------------------------

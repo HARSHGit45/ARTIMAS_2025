@@ -68,9 +68,29 @@ const  Amngus= () => {
           className="px-6 py-3 bg-[#004b23] border-2 border-[#6c757d] text-[#DAD7CD] rounded-full shadow-lg font-bold ">
             Register Now
           </button>
-          <button className="px-6 py-3 bg-[#000000] border-2 border-[#946B2D] text-[#ffffff] rounded-full shadow-lg font-bold">
-            Rulebook
-          </button>
+          <button
+  className="px-6 py-3 bg-[#000000] border-2 border-[#946B2D] text-[#ffffff] rounded-full shadow-lg font-bold"
+  onClick={() => window.open("https://docs.google.com/document/d/1Zt0y2m0JfQtgLiGtPr4qlUGcgExlSUD0_D2NT8JBaJE/edit?usp=sharing", "_blank")}
+       
+  >
+  Rulebook
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
           <AURegister  visible={showMyModal} onClose={() => setshowMyModal(false)} />
 

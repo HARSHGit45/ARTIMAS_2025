@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 
 import HH from './pages/Houdieni Heist/HH';
-// import Header from './components/Header/Header.jsx'
+import FireFliesBackground from './components/fireflies/FireFliesBackground.jsx';
 import Pointer from './components/cursor/Pointer.jsx';
 import Amngus from './pages/Among Us/Amngus.jsx';
 import Hackmatrix from './pages/HackMatrix/Hackmatrix.jsx';
@@ -25,24 +25,24 @@ const Home = () => {
 
 function App() {
   return (
+  
     <Router>
-      {/* ThreeScene rendered as a fixed background */}
-      
       <Navbar />
+      <FireFliesBackground />
       <Pointer />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Houdini" element={<HH />} />
-        <Route path="/amongus" element={<Amngus />} />
-        <Route path="/datathon" element={<Datathon />} />
-        <Route path="/pixel" element={<Pixel />} />
-        <Route path="/hackmatrix" element={<Hackmatrix />} />
-        <Route path="/events" element={<FoldableMap />} />
-        <Route path="/team" element={<Team />} />
-        <Route path='/sponsor' element={<Sponsor/>} />
-        <Route path='/calander' element={<Calander/>} />
-      </Routes>
-      <Footer />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/houdiniheist" element={<HH />} />
+          <Route path="/amongus" element={<Amngus />} />
+          <Route path="/datathon" element={<Datathon />} />
+          <Route path="/hackmatrix" element={<Hackmatrix />} />
+          <Route path='/pixelperfect' element={<Pixel />} />
+          <Route path='/events' element={<FoldableMap />} />
+          <Route path='/team' element={<Team />} />
+          <Route path='/sponsor' element={<Sponsor/>} />
+          <Route path='/calander' element={<Calander/>} />
+        </Routes>
+        <Footer />
     </Router>
   );
 
