@@ -23,6 +23,8 @@ const FoldableMap = () => {
       <div className="overflow-x-clip mt-64 sm:mt-20 md:mt-96 lg:mt-64 xl:mt-20 2xl:mt-44 rotate-x-64 -rotate-y-4 rotate-z-5" style={{ perspective: "1000px" }}>
         <motion.div animate={isFolded ? "folded" : "open"} variants={{ open: { scale: 1 }, folded: { scale: 0.9 } }} initial="folded">
           {/* Responsive Map Size */}
+        
+        
           <motion.div className="grid aspect-video h-[28vh] sm:h-[32vh] md:h-[38vh] lg:h-[50vh] xl:h-[70vh] w-[40vh] sm:w-[50vh] md:w-[60vh] lg:w-[80vh] xl:w-[120vh] 2xl:w-[120vh] relative">
             <div className="grid grid-cols-3 [grid-area:1/1]">
               <motion.div style={{ x: xLeftSection, skewY: "-1deg" }} className="map-image border-r border-gray-200 shadow-lg" />
@@ -38,8 +40,21 @@ const FoldableMap = () => {
               className="absolute inset-0 cursor-grab active:cursor-grabbing"
             />
           </motion.div>
+
+
+
+          
         </motion.div>
+
+
+
+
+
+
+
+        
       </div>
+
 
       {!isFolded && (
         <>

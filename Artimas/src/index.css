@@ -32,7 +32,13 @@
 }
 
 .hero6 {
-  background: linear-gradient(rgba(26, 25, 25, 0.5), rgba(22, 21, 21, 0.5)), url("./assets/sponsor_bg.png");
+  background: linear-gradient(rgba(1, 1, 1, 0.5), rgba(1, 1, 1, 0.5)), url("./assets/sponsor_bg.png");
+  background-size: cover;
+}
+
+
+.hero7 {
+  background: linear-gradient(rgba(1, 1, 1, 0.5), rgba(1, 1, 1, 0.5)), url("./assets/calanderbg.png");
   background-size: cover;
 }
 

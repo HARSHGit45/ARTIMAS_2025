@@ -14,6 +14,7 @@ import FoldableMap from './components/FoldableMap.jsx';
 import Navbar from './components/Navbar.jsx';
 import Team from './components/Team.jsx';
 import Sponsor from './pages/sponsor/Sponsor.jsx';
+import Calander from './pages/Calender/Calander.jsx';
 
 
 const Home = () => {
@@ -71,7 +72,7 @@ function App() {
         <Route path='/events' element={<FoldableMap />} />
         <Route path='/team' element={<Team />} />
         <Route path='/sponsor' element={<Sponsor/>} />
-     
+        <Route path='/calander' element={<Calander/>} />
       </Routes>
       <Footer />
     </Router>
