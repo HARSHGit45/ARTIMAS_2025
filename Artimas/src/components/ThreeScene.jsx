@@ -679,7 +679,7 @@ function onPointerUp() {
         <div
           style={{
             position: 'absolute',
-            zIndex: 9999,
+            zIndex: 9000,
             top: 0,
             left: 0,
             width: '100%',
