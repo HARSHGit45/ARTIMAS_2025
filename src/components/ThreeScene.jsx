@@ -9,7 +9,12 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { TAARenderPass } from 'three/examples/jsm/postprocessing/TAARenderPass.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer.js';
 import Stats from 'stats.js';
-
+import harryPotterGIF from '../assets/harryPotterOnBroom.gif';
+import gryffindor from '../assets/icons8-hogwarts-legacy-gryffindor.svg'
+import slytherin from '../assets/icons8-hogwarts-legacy-slytherin.svg'
+import hufflepuff from '../assets/icons8-hogwarts-legacy-hufflepuff.svg'
+import Ravenclaw from '../assets/icons8-hogwarts-legacy-Ravenclaw.svg'
+import Pixel from '../assets/icons8-hogwarts-legacy.svg'
 
 //Things to fix:
 //Tag placement
@@ -137,6 +142,22 @@ const ThreeScene = () => {
       "/#/hackmatrix",
       "/#/datathon",
       "/#/pixelperfect",
+    ];
+
+    const images = [
+      gryffindor,
+      slytherin,
+      Ravenclaw,
+      hufflepuff,
+      Pixel,
+    ];
+
+    const eventNames = [
+      "Houdini Heist",
+      "Among Us",
+      "Hack Matrix",
+      "Datathon",
+      "Pixel Perfect",
     ];
 
     // -- UTILITY FUNCTIONS --------------------------------------------------
@@ -398,8 +419,16 @@ const ThreeScene = () => {
         hitboxes.push(hitbox);
 
         const labelDiv = document.createElement('div');
-        labelDiv.className = `label${i + 1}`;
-        labelDiv.style.backgroundImage = `url('../assets/icons8-hogwarts-legacy${["-gryffindor", "-slytherin", "-ravenclaw", "-hufflepuff", ""][i]}.svg')`;
+        const innerDiv = document.createElement('div');
+        innerDiv.className = 'label-text';
+        innerDiv.innerText = eventNames[i];
+        innerDiv.style.fontFamily = 'Harry P';
+        innerDiv.style.color = '#ffcf40';
+        labelDiv.appendChild(innerDiv);
+        const img = document.createElement('img');
+        img.src = images[i];
+        img.className = 'label-image';
+        labelDiv.appendChild(img);
         labelDiv.style.height = '50px';
         if (i == 4) {
           labelDiv.style.height = '65px';
@@ -704,7 +733,7 @@ function onPointerUp() {
             Loading {Math.floor(progress)}%
           </div>
           <img
-            src='../assets/harryPotterOnBroom.gif'
+            src={harryPotterGIF}
             style={{
               width: '150px',
               height: '150px',
