@@ -84,7 +84,7 @@ const ThreeScene = () => {
       params = {
         showStats: false,
         userInteracting: true,
-        fov: 40,
+        fov: 30,
         fxaa: false,
         taa: false,
         bloomPass: false,
