@@ -1,3 +1,5 @@
+import { color } from "framer-motion"
+
 export const TEAM =  [
     {
       img: "https://res.cloudinary.com/dgfxygdz7/image/upload/v1734611485/HARSHAL-modified_a5hanl.webp",
@@ -64,5 +66,54 @@ export const TEAM =  [
       linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
       instagram: "https://www.instagram.com/anuj_1142110/",
       github: "https://github.com/AnujChandak0110"
+    },
+    {
+      img: "?", //currently unavailable
+      name: "Shruti Mahadik",
+      job: "Junior Executive",
+      linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
+      instagram: "https://www.instagram.com/anuj_1142110/",
+      github: "https://github.com/AnujChandak0110"
     }
+]
+
+export const EVENTS = [
+  {
+    img: "src/assets/Gryffindor.webp", //currently unavailable
+    name: "Houdini Heist",
+    job: "Junior Executive",
+    linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
+    instagram: "https://www.instagram.com/anuj_1142110/",
+    github: "https://github.com/AnujChandak0110"
+  },
+  {
+    img: "src/assets/huff.webp", //currently unavailable
+    name: "Datathon",
+    job: "Junior Executive",
+    linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
+    instagram: "https://www.instagram.com/anuj_1142110/",
+    github: "https://github.com/AnujChandak0110"
+  },
+  {
+    img: "src/assets/Slytherin.webp", //currently unavailable
+    name: "Among Us",
+    job: "Junior Executive",
+    linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
+    instagram: "https://www.instagram.com/anuj_1142110/",
+    github: "https://github.com/AnujChandak0110"
+  },
+  {
+    img: "src/assets/Ravenclaw.webp", //currently unavailable
+    name: "HackMatrix",
+    job: "Junior Executive",
+    color: "#0E1A40"
+  },
+  {
+    img: "/src/assets/colin.png", //currently unavailable
+    name: "Pixel Perfect",
+    job: "Junior Executive",
+    linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
+    instagram: "https://www.instagram.com/anuj_1142110/",
+    github: "https://github.com/AnujChandak0110"
+  }
 ]
