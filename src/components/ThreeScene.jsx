@@ -399,7 +399,7 @@ const ThreeScene = () => {
 
         const labelDiv = document.createElement('div');
         labelDiv.className = `label${i + 1}`;
-        labelDiv.style.backgroundImage = `url('/#/src/assets/icons8-hogwarts-legacy${["-gryffindor", "-slytherin", "-ravenclaw", "-hufflepuff", ""][i]}.svg')`;
+        labelDiv.style.backgroundImage = `url('../../assets/icons8-hogwarts-legacy${["-gryffindor", "-slytherin", "-ravenclaw", "-hufflepuff", ""][i]}.svg')`;
         labelDiv.style.height = '50px';
         if (i == 4) {
           labelDiv.style.height = '65px';
@@ -704,7 +704,7 @@ function onPointerUp() {
             Loading {Math.floor(progress)}%
           </div>
           <img
-            src='/#/src/assets/harryPotterOnBroom.gif'
+            src='../../assets/harryPotterOnBroom.gif'
             style={{
               width: '150px',
               height: '150px',
