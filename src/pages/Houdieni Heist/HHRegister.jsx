@@ -28,7 +28,7 @@ const HHRegister = ({ visible, onClose }) => {
   const [uploading, setUploading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
   const [error, setError] = useState("");
-  const whatsappLink = "https://chat.whatsapp.com/HsMRzUSbaGw9apc6q2LW8o";
+  const whatsappLink = "https://chat.whatsapp.com/CZ4MA9Z0IAV8x5rO7hKgyx ";
   let url = "";
   if (!visible) return null;
 

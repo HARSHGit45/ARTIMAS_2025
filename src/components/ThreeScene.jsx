@@ -9,6 +9,7 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { TAARenderPass } from 'three/examples/jsm/postprocessing/TAARenderPass.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer.js';
 import Stats from 'stats.js';
+import WandText from './WandText';
 import harryPotterGIF from '../assets/harryPotterOnBroom.gif';
 import gryffindor from '../assets/icons8-hogwarts-legacy-gryffindor.svg'
 import slytherin from '../assets/icons8-hogwarts-legacy-slytherin.svg'
@@ -26,14 +27,14 @@ const ThreeScene = () => {
   // 'loading' and 'progress' are updated as models load in the background.
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
-  // 'preloaderStarted' tracks whether the user has clicked the welcome button.
+  // 'preloaderStarted' now only controls the overlay visibility.
   const [preloaderStarted, setPreloaderStarted] = useState(false);
   // Prevent multiple initializations
   const initiated = useRef(false);
 
   useEffect(() => {
     // Only initialize once preloaderStarted is true
-    if (!preloaderStarted || initiated.current) return;
+    // if (initiated.current) return;
     initiated.current = true;
     // -- VARIABLES & INITIAL SETUP -----------------------------------------
     let scene, camera, renderer, composer, labelRenderer, animationFrameId;
@@ -55,7 +56,7 @@ const ThreeScene = () => {
     let params = {
       showStats: false,
       userInteracting: true,
-      fov: 27,
+      fov:17,
       fxaa: false,
       taa: false,
       bloomPass: true,
@@ -131,9 +132,9 @@ const ThreeScene = () => {
       11: { color: 0xe8f9ff, opacity: 1 },
       12: { color: 0xffffff, opacity: 1 },
       13: { color: 0xffffff, opacity: 1 },
-      14: { color: 0xffffff, opacity: 0.5 },
+      14: { color: 0xffffff, opacity: 1 },
       15: { color: 0x865110, opacity: 1 },
-      16: { color: 0xe8f9ff, opacity: 0.8 },
+      16: { color: 0xe8f9ff, opacity: 1 },
     };
 
     const sites = [
@@ -238,7 +239,7 @@ const ThreeScene = () => {
                   child.renderOrder = index;
                   if ([7, 8, 9, 12, 13, 14].includes(index)) {
                     child.material.emissive = new THREE.Color(0xffbb00);
-                    child.material.emissiveIntensity = 1;
+                    child.material.emissiveIntensity = 1.2;
                   }
                 }
               });
@@ -327,7 +328,6 @@ const ThreeScene = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       containerRef.current.appendChild(renderer.domElement);
       loadSkyboxSphere();
-      // scene.fog = new THREE.Fog(params.fogColor, 1, 3000);
     }
 
     function setupLights() {
@@ -519,7 +519,7 @@ function onPointerUp() {
       window.addEventListener("touchstart", onPointerDown, false);
       window.addEventListener("touchmove", onPointerMove, false);
       window.addEventListener("touchend", onPointerUp, false);
-      window.addEventListener("click", onClick);
+      // window.addEventListener("click", onClick);
     }
 
     // -- ANIMATION ----------------------------------------------------------
@@ -629,7 +629,7 @@ function onPointerUp() {
       window.removeEventListener("touchstart", onPointerDown);
       window.removeEventListener("touchmove", onPointerMove);
       window.removeEventListener("touchend", onPointerUp);
-      window.removeEventListener("click", onClick);
+      // window.removeEventListener("click", onClick);
 
       if (containerRef.current) {
         if (renderer && renderer.domElement && containerRef.current.contains(renderer.domElement)) {
@@ -643,7 +643,7 @@ function onPointerUp() {
         }
       }
     };
-  }, [preloaderStarted]);
+  }, []);
 
   return (
     <div 
@@ -683,19 +683,28 @@ function onPointerUp() {
           <h1 style={{ fontSize: '60px', marginBottom: '20px' }}>
             Welcome to the wizarding world...
           </h1>
-          <p style={{ fontSize: '25px', marginBottom: '40px' }}>
+          <div style={{ marginTop: '20px', marginBottom: '60px' }}>
+            <WandText/>
+          </div>
+          <p style={{ fontSize: '15px', marginBottom: '20px' }}>
             Press the button below to be amazed!!
           </p>
           <button
             onClick={() => setPreloaderStarted(true)}
             style={{
               padding: '15px 30px',
-              fontColor: '#FFD700',
+              color: '#FFD700',
               cursor: 'pointer',
               background: '#000',
               border: 'none',
               borderRadius: '5px',
               fontSize: '25px',
+              transition: 'background 0.2s ease-in-out',
+              '&:hover': {
+                background: 'linear-gradient(90deg, #FFD700 0%, #FFD700 100%)',
+                backgroundSize: '200% 200%',
+                animation: 'shine 2s ease-in-out infinite',
+              },
             }}
           >
             Start

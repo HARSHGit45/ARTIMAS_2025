@@ -103,3 +103,14 @@ body {
   -ms-overflow-style: none;  /* Hides scrollbar in IE/Edge */
   scrollbar-width: none;  /* Hides scrollbar in Firefox */
 }
+
+
+/* ThreeScene.jsx */
+@keyframes shine {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: -200% 0%;
+  }
+}

@@ -28,7 +28,7 @@ const DDRegister = ({ visible, onClose }) => {
   const [teamName, setTeamName] = useState("");
   const [uploading, setUploading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
-  const whatsappLink = "https://chat.whatsapp.com/HsMRzUSbaGw9apc6q2LW8o";
+  const whatsappLink = "https://chat.whatsapp.com/HSYcDkqczSdJXVjjJAHifi";
   let url = "";
   if (!visible) return null;
 

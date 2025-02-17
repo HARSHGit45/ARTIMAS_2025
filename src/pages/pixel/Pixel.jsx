@@ -67,7 +67,9 @@ const  HH= () => {
           className="px-6 py-3 bg-[#ac2424] border-2 border-[#60605C] text-[#FFFFFF] rounded-full shadow-lg font-bold ">
             Register Now
           </button>
-          <button className="px-6 py-3 bg-[#000000] border-2 border-[#946B2D] text-[#FFFFFF] rounded-full shadow-lg font-bold">
+          <button 
+          onClick={() => window.open("https://drive.google.com/file/d/14zrzGEOwXpB-FwUskVjNZBSzKhH-Nday/view?usp=sharing", "_blank")}
+          className="px-6 py-3 bg-[#000000] border-2 border-[#946B2D] text-[#FFFFFF] rounded-full shadow-lg font-bold">
             Rulebook
           </button>
 

@@ -11,8 +11,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-2 left-0 w-full z-9999">
-      <div className="flex justify-between items-center max-w-6xl mx-auto md:my-2 bg-stone-950 px-12 py-[12px] md:rounded-xl backdrop-blur-lg">
+    <nav className="fixed top-0 left-0 w-full z-9990">
+      <div className="flex justify-between items-center max-w-6xl mx-auto md:my-2 bg-transparent-700 border-b-2 border-[#ffd700] px-12 py-[12px] md:rounded-xl backdrop-blur-lg">
         <div>
           <Logo />
         </div>
@@ -28,7 +28,7 @@ const Navbar = () => {
             </Link>
             <Link to="/sponsor"
               className="text-white transition duration-300 hover:text-orange-600 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]">
-              Sponsor
+              Sponsors
             </Link>
            
           
@@ -52,7 +52,7 @@ const Navbar = () => {
 
       {/* Mobile Links */}
       {menuOpen && (
-        <div className="md:hidden py-4 bg-stone-950 backdrop-blur-lg flex flex-col space-y-4 max-w-6xl items-center justify-center text-2xl event font-bold mx-auto">
+        <div className="md:hidden py-4 bg-transparent-700 border-b-2 border-[#ffd700] backdrop-blur-lg flex flex-col space-y-4 max-w-6xl items-center justify-center text-[21px] font-bold event mx-auto">
             <Link to="/events"
               className="text-white transition duration-300 hover:text-orange-600 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]"
               onClick={handleLinkClick}
@@ -60,16 +60,16 @@ const Navbar = () => {
               Events
             </Link>
             <Link to="/calander"
-              className="text-white hover:text-stone-400 transition duration-300"
+              className="text-white transition duration-300 hover:text-orange-600 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]"
               onClick={handleLinkClick}
             >
               Calendar
             </Link>
             <Link to="/sponsor"
-              className="text-white hover:text-stone-400 transition duration-300"
+              className="text-white transition duration-300 hover:text-orange-600 hover:drop-shadow-[0_0_10px_rgb(255,128,64)]"
               onClick={handleLinkClick}
             >
-              Sponsor
+              Sponsors
             </Link>
            
           

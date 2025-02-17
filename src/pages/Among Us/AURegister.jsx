@@ -24,7 +24,7 @@ const AURegister = ({ visible, onClose }) => {
   const [uploading, setUploading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
   const [error, setError] = useState("");
-  const whatsappLink = "https://chat.whatsapp.com/HsMRzUSbaGw9apc6q2LW8o";
+  const whatsappLink = "https://chat.whatsapp.com/EyNQ7CpUeja022iIi6gPIz";
   let url = "";
   const emailRegex1 = /^[a-zA-Z]+\.[a-zA-Z]+[0-9]{2}@pccoepune\.org$/;
   const emailRegex2 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
