@@ -186,7 +186,7 @@ const AURegister = ({ visible, onClose }) => {
             
             onClick={onClose}
 
-             className="flex items-center gap-2 bg-blue-500  text-white px-4 py-2 rounded-lg mt-4">Close</button>
+             className="w-full flex items-center justify-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg mt-4">Close</button>
 
                   </motion.div>
                 )}

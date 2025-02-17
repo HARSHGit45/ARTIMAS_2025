@@ -57,7 +57,7 @@ const ThreeScene = () => {
       taaSampleLevel: 1,
       nightAmount: 0,
       bloomStrength: 1,
-      bloomRadius: 0.2,
+      bloomRadius: 0.001,
       bloomThreshold: 0.8,
       fogHeight: 1,
       fogColor: 0x446677,
