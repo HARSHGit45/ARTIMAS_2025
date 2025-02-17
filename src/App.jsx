@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 
 import HH from './pages/Houdieni Heist/HH';
 import FireFliesBackground from './components/fireflies/FireFliesBackground.jsx';
