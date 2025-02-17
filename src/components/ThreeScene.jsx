@@ -13,7 +13,7 @@ import harryPotterGIF from '../assets/harryPotterOnBroom.gif';
 import gryffindor from '../assets/icons8-hogwarts-legacy-gryffindor.svg'
 import slytherin from '../assets/icons8-hogwarts-legacy-slytherin.svg'
 import hufflepuff from '../assets/icons8-hogwarts-legacy-hufflepuff.svg'
-import Ravenclaw from '../assets/icons8-hogwarts-legacy-Ravenclaw.svg'
+import Ravenclaw from '../assets/icons8-hogwarts-legacy-ravenclaw.svg'
 import Pixel from '../assets/icons8-hogwarts-legacy.svg'
 
 //Things to fix:
