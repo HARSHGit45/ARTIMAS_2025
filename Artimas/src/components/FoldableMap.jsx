@@ -42,7 +42,7 @@ const FoldableMap = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <h1 className="text-4xl text-white md:text-6xl font-medium mb-18">EVENTS</h1>
+        <h1 className="text-4xl text-white md:text-6xl font-medium mb-24">EVENTS</h1>
 
         {/* Event Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-10 md:gap-12 lg:gap-24 2xl:gap-16 space-x-8">
