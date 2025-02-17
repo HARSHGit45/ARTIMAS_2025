@@ -79,28 +79,33 @@ export const TEAM =  [
 
 export const EVENTS = [
   {
-    img: "src/assets/Gryffindor.webp", //currently unavailable
+    img: "../assets/Gryffindor.webp",
+    route: "/#/houdiniheist",
     name: "Houdini Heist",
     color: "#ac2424"
   },
   {
-    img: "src/assets/huff.webp", 
+    img: "../assets/huff.webp", 
+    route: "/#/datathon",
     name: "Datathon",
     color: "#FFB900"
   },
   {
-    img: "src/assets/Slytherin.webp", 
+    img: "../assets/Slytherin.webp", 
+    route: "/#/amongus",
     name: "Among Us",
     color: "#004b23"
   },
   {
-    img: "src/assets/Ravenclaw.webp", 
+    img: "../assets/Ravenclaw.webp",
+    route: "/#/hackmatrix", 
     name: "HackMatrix",
     job: "Junior Executive",
     color: "#0E1A40"
   },
   {
-    img: "/src/assets/colin.png", //currently unavailable
+    img: "../assets/colin.png", //currently unavailable
+    route: "/#/pixelperfect",
     name: "Pixel Perfect",
     color: "#ac2424"
   }

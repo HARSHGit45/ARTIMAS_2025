@@ -76,6 +76,7 @@ const FoldableMap = () => {
               <button
                 className="px-6 py-3 2xl:px-6 2xl:py-4 border-2 border-[#60605C] text-[#FFFFFF]  text-2xl 2xl:text-2xl rounded-full shadow-lg font-bold mt-5 2xl:mt-5"
                 style={{ backgroundColor: event.color }}
+                onClick={() => window.open(event.route, "_blank")}
               >
                 Register
               </button>
