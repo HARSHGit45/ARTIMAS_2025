@@ -16,6 +16,8 @@ import slytherin from '../assets/icons8-hogwarts-legacy-slytherin.svg'
 import hufflepuff from '../assets/icons8-hogwarts-legacy-hufflepuff.svg'
 import Ravenclaw from '../assets/icons8-hogwarts-legacy-ravenclaw.svg'
 import Pixel from '../assets/icons8-hogwarts-legacy.svg'
+import FireFliesBackground from './fireflies/FireFliesBackground';
+
 
 //Things to fix:
 //Tag placement
@@ -680,13 +682,12 @@ function onPointerUp() {
             padding: '20px',
           }}
         >
-          <h1 style={{ fontSize: '60px', marginBottom: '20px' }}>
+          <FireFliesBackground />
+          <h1 style={{ fontSize: '60px', marginBottom: '80px' }}>
             Welcome to the wizarding world...
           </h1>
-          <div style={{ marginTop: '20px', marginBottom: '60px' }}>
-            <WandText/>
-          </div>
-          <p style={{ fontSize: '15px', marginBottom: '20px' }}>
+          <WandText />
+          <p style={{ fontSize: '15px', marginTop: '80px' }}>
             Press the button below to be amazed!!
           </p>
           <button

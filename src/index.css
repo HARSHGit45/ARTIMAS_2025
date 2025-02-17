@@ -83,6 +83,12 @@ body {
   
 }
 
+.eventcard {
+  background:  url("./assets/eventcard.png");
+  background-size: cover;
+  
+}
+
 @keyframes move {
   0% {
     transform: translate(0, 0);

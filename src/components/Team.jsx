@@ -66,7 +66,7 @@ const Team = () => {
         animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : 50 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={isOpen ? "block" : "hidden"}
-      >
+ >
         <h1 className="text-4xl text-white md:text-6xl font-medium mb-12">
           Our Team
         </h1>
