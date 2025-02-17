@@ -35,7 +35,8 @@ const ThreeScene = () => {
     let stats;
     const clock = new THREE.Clock();
     const raycaster = new THREE.Raycaster();
-    const hitboxes = [];
+    const 
+    hitboxes = [];
     let taaRenderPass;
     let taaIndex = 0;
     let isDragging = false;
@@ -133,8 +134,8 @@ const ThreeScene = () => {
     const sites = [
       "/houdiniheist",
       "/amongus",
-      "/datathon",
       "/hackmatrix",
+      "/datathon",
       "/pixelperfect",
     ];
 
