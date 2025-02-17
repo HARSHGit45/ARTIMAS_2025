@@ -9,6 +9,8 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { TAARenderPass } from 'three/examples/jsm/postprocessing/TAARenderPass.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer.js';
 import Stats from 'stats.js';
+import WandText from './WandText';
+import FireFliesBackground from './fireflies/FireFliesBackground';
 
 
 //Things to fix:
@@ -651,10 +653,12 @@ function onPointerUp() {
             padding: '20px',
           }}
         >
-          <h1 style={{ fontSize: '60px', marginBottom: '20px' }}>
+          <FireFliesBackground />
+          <h1 style={{ fontSize: '60px', marginBottom: '80px' }}>
             Welcome to the wizarding world...
           </h1>
-          <p style={{ fontSize: '25px', marginBottom: '40px' }}>
+          <WandText />
+          <p style={{ fontSize: '25px', marginTop: '80px' }}>
             Press the button below to be amazed!!
           </p>
           <button

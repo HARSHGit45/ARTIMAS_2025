@@ -81,29 +81,20 @@ export const EVENTS = [
   {
     img: "src/assets/Gryffindor.webp", //currently unavailable
     name: "Houdini Heist",
-    job: "Junior Executive",
-    linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
-    instagram: "https://www.instagram.com/anuj_1142110/",
-    github: "https://github.com/AnujChandak0110"
+    color: "#ac2424"
   },
   {
-    img: "src/assets/huff.webp", //currently unavailable
+    img: "src/assets/huff.webp", 
     name: "Datathon",
-    job: "Junior Executive",
-    linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
-    instagram: "https://www.instagram.com/anuj_1142110/",
-    github: "https://github.com/AnujChandak0110"
+    color: "#FFB900"
   },
   {
-    img: "src/assets/Slytherin.webp", //currently unavailable
+    img: "src/assets/Slytherin.webp", 
     name: "Among Us",
-    job: "Junior Executive",
-    linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
-    instagram: "https://www.instagram.com/anuj_1142110/",
-    github: "https://github.com/AnujChandak0110"
+    color: "#004b23"
   },
   {
-    img: "src/assets/Ravenclaw.webp", //currently unavailable
+    img: "src/assets/Ravenclaw.webp", 
     name: "HackMatrix",
     job: "Junior Executive",
     color: "#0E1A40"
@@ -111,9 +102,6 @@ export const EVENTS = [
   {
     img: "/src/assets/colin.png", //currently unavailable
     name: "Pixel Perfect",
-    job: "Junior Executive",
-    linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
-    instagram: "https://www.instagram.com/anuj_1142110/",
-    github: "https://github.com/AnujChandak0110"
+    color: "#ac2424"
   }
 ]
