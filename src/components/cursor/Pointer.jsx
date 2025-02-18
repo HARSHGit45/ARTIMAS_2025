@@ -98,23 +98,26 @@ const Pointer = () => {
     animate();
   }, []);
 
+  const isMobile = window.matchMedia("(pointer:coarse)").matches;
+
   return (
     <>
       <canvas id="particle-canvas" className="fixed top-0 left-0 w-full h-full pointer-events-none z-[9998]"></canvas>
 
       {/* Wand Image as Cursor */}
-      <img
-        src={wand}
-        alt="Magic Wand"
-        className="fixed pointer-events-none z-[9999] w-28 h-26"
-        style={{
-          left: cursorPosition.x + 47 ,
-          top: cursorPosition.y + 56,
-          transform: "translate(-50%, -50%)",
-          filter: "drop-shadow(0 0 10px rgba(255, 255, 255, 0.6))",
-        }}
-      />
-
+      {!isMobile && (
+        <img
+          src={wand}
+          alt="Magic Wand"
+          className="fixed pointer-events-none z-[9999] w-28 h-26"
+          style={{
+            left: cursorPosition.x + 47,
+            top: cursorPosition.y + 56,
+            transform: "translate(-50%, -50%)",
+            filter: "drop-shadow(0 0 10px rgba(255, 255, 255, 0.6))",
+          }}
+        />
+      )}
     </>
   );
 };

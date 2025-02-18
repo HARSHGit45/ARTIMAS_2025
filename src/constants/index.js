@@ -26,7 +26,7 @@ export const TEAM =  [
       github: "#"
     },
     {
-      img: "#",
+      img: "https://res.cloudinary.com/dbnchiygl/image/upload/v1739796371/bjdbytk37sbmqytlfzie.jpg",
       name: "Ketan Agrawal",
       job: "Junior Executive",
       linkedin: "https://www.linkedin.com/in/ketan-agrawal-832b28252/",
@@ -49,8 +49,6 @@ export const TEAM =  [
       instagram: "https://www.instagram.com/prithxvhie.44/",
       github: "https://github.com/Prithxvhie44"
     },
-   
-    
     {
       img: "https://res.cloudinary.com/da8ma5izt/image/upload/v1739696240/my_r4di02.jpg",
       name: "Prasad Pawar",
@@ -60,7 +58,7 @@ export const TEAM =  [
       github: "https://github.com/Prasadpawar21"
     },
     {
-      img: "?", //currently unavailable
+      img: "https://res.cloudinary.com/dbnchiygl/image/upload/v1739796661/cf1gjcljh00wgyiwnhlb.jpg", 
       name: "Anuj Chandak",
       job: "Junior Executive",
       linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
@@ -68,7 +66,7 @@ export const TEAM =  [
       github: "https://github.com/AnujChandak0110"
     },
     {
-      img: "?", //currently unavailable
+      img: "https://res.cloudinary.com/doickrtde/image/upload/v1739852770/shruti_axxzz9.jpg ", 
       name: "Shruti Mahadik",
       job: "Junior Executive",
       linkedin: "https://www.linkedin.com/in/anuj-chandak-787a1b308/",
