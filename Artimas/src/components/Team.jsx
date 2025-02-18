@@ -79,14 +79,14 @@ const Team = () => {
               whileInView="visible"
               viewport={{ once: true }}
               variants={projectVariants}>
+<div className="w-24 h-24 sm:w-20 sm:h-20 md:w-20 md:h-24 xl:w-24 xl:h-24 mt-28 sm:mt-18 md:mt-22 lg:mt-28 xl:mt-28 2xl:mt-32 rounded-full overflow-hidden border-4 border-amber-950">
+  <img
+    src={member.img}
+    alt={member.name}
+    className="w-full h-full object-cover"
+  />
+</div>
 
-              <div className="w-24 h-24 md:w-24 md:h-24 xl:w-24 xl:h-24 mt-27 xl:mt-28 lg:mt-28 md:mt-22 2xl:mt-32 rounded-full overflow-hidden border-4 border-amber-950">
-                <img
-                  src={member.img}
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
 
               
               <h2 className="mt-3 text-xl font-bold">{member.name}</h2>

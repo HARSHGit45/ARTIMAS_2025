@@ -45,13 +45,13 @@ const FoldableMap = () => {
         <h1 className="text-4xl text-white md:text-6xl font-medium mb-24">EVENTS</h1>
 
         {/* Event Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-10 md:gap-12 lg:gap-24 2xl:gap-16 space-x-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-2 place-items-center gap-10 md:gap-12 lg:gap-24 2xl:gap-36 space-x-8">
           {EVENTS.map((event, index) => (
             <motion.div
               key={index}
               className="relative flex flex-col items-center justify-center eventcard rounded-2xl shadow-lg p-6 
                          w-[43vh] h-[55vh] md:w-[35vh] md:h-[44vh] lg:w-[270px] lg:h-[49vh] 
-                         xl:w-[300px] xl:h-[50vh] 2xl:w-[420px] 2xl:h-[39vh] transition transform"
+                         xl:w-[300px] xl:h-[50vh] 2xl:w-[420px] 2xl:h-[79vh] transition transform"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -65,12 +65,12 @@ const FoldableMap = () => {
                   variants={imageVariants}
                   src={event.img}
                   alt={event.name}
-                  className="h-[32vh] w-[32vh] md:h-[24vh] md:w-[24vh] 2xl:h-[24vh] 2xl:w-[24vh] lg:h-[28vh] lg:w-[28vh] xl:h-[28vh] xl:w-[28vh] -mt-28 md:-mt-18 2xl:-mt-46 p-3"
+                  className="h-[32vh] w-[32vh] md:h-[24vh] md:w-[24vh] 2xl:h-[28vh] 2xl:w-[28vh] lg:h-[28vh] lg:w-[28vh] xl:h-[28vh] xl:w-[28vh] -mt-28 md:-mt-18 2xl:-mt-14 p-3"
                 />
               </div>
 
               {/* Event Name */}
-              <h2 className="text-2xl md:text-2xl 2xl:text-[40px] lg:text-2xl xl:text-[27px] font-bold 2xl:mt-10 xl:mt-3 mt-6">{event.name}</h2>
+              <h2 className="text-2xl md:text-2xl 2xl:text-[40px] lg:text-2xl xl:text-[27px] font-bold 2xl:mt-8 xl:mt-3 mt-6">{event.name}</h2>
 
               {/* Register Button */}
               <button
